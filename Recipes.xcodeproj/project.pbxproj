@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* MainViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
 		11E9F93E28DA62FB0040D7B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E9F93D28DA62FB0040D7B3 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11E9F93B28DA62F90040D7B3 /* Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipes.xcdatamodel; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11A2A06228EA06CA00AD9EC5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		11E9F92528DA62F90040D7B3 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		11E9F95228DA66210040D7B3 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				11A2A06228EA06CA00AD9EC5 /* Coordinator */,
 				11E9F94B28DA63900040D7B3 /* Application */,
 			);
 			path = Supporting;
@@ -177,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */,
 				11E9F95128DA65CA0040D7B3 /* AppDelegate.swift in Sources */,
 				11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */,
 				11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */,
