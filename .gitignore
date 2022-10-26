@@ -1,1 +1,7 @@
+# Xcode
+xcuserdata/
+KODE-Recipes.xcworkspace/
+DerivedData/
 
+# Mac OS X Finder
+.DS_Store
