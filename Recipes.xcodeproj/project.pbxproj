@@ -18,6 +18,7 @@
 		116E3CB029097B9B005F73DD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CAF29097B9B005F73DD /* R.generated.swift */; };
 		116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CBC29098DBE005F73DD /* SearchCase.swift */; };
 		116E3CC229098E2A005F73DD /* SortCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC129098E2A005F73DD /* SortCase.swift */; };
+		116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC329098E6F005F73DD /* DataForCell.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* MainViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 		116E3CAF29097B9B005F73DD /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		116E3CBC29098DBE005F73DD /* SearchCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCase.swift; sourceTree = "<group>"; };
 		116E3CC129098E2A005F73DD /* SortCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCase.swift; sourceTree = "<group>"; };
+		116E3CC329098E6F005F73DD /* DataForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForCell.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				116E3CBC29098DBE005F73DD /* SearchCase.swift */,
 				116E3CC129098E2A005F73DD /* SortCase.swift */,
+				116E3CC329098E6F005F73DD /* DataForCell.swift */,
 			);
 			name = Model;
 			path = MainScreen/Model;
@@ -410,6 +413,7 @@
 				114CBD512909489900695106 /* RecipeBrief.swift in Sources */,
 				114CBD5B29094A0400695106 /* RecipeDataRaw.swift in Sources */,
 				114CBD562909499600695106 /* RecipeResponse.swift in Sources */,
+				116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */,
 				116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */,
 				116E3CC229098E2A005F73DD /* SortCase.swift in Sources */,
 			);
