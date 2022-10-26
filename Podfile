@@ -9,6 +9,7 @@ target 'Recipes' do
   pod 'Kingfisher'
   pod 'SwiftLint'
   pod 'SnapKit'
+  pod 'R.swift'
 
   # Pods for Recipes
 
