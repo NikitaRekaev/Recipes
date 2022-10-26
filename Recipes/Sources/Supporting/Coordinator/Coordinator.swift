@@ -25,7 +25,7 @@ class Coordinator {
     }
     
     func removeAllChildCoordinatorsWithType<T: Coordinator>(type: T.Type) {
-        childCoordinators = childCoordinators.filter {$0 is T == false}
+        childCoordinators = childCoordinators.filter { $0 is T == false }
     }
     
     func removeAllChildCoordinators() {
