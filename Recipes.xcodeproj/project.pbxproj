@@ -19,7 +19,7 @@
 		116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CBC29098DBE005F73DD /* SearchCase.swift */; };
 		116E3CC229098E2A005F73DD /* SortCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC129098E2A005F73DD /* SortCase.swift */; };
 		116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC329098E6F005F73DD /* DataForCell.swift */; };
-		116E3CC629098EFE005F73DD /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC529098EFE005F73DD /* CellViewModel.swift */; };
+		116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC529098EFE005F73DD /* TableCellViewModel.swift */; };
 		116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC829098FD0005F73DD /* CellRepresentable.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* MainViewController.swift */; };
@@ -43,7 +43,7 @@
 		116E3CBC29098DBE005F73DD /* SearchCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCase.swift; sourceTree = "<group>"; };
 		116E3CC129098E2A005F73DD /* SortCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCase.swift; sourceTree = "<group>"; };
 		116E3CC329098E6F005F73DD /* DataForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForCell.swift; sourceTree = "<group>"; };
-		116E3CC529098EFE005F73DD /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		116E3CC529098EFE005F73DD /* TableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewModel.swift; sourceTree = "<group>"; };
 		116E3CC829098FD0005F73DD /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +130,7 @@
 		116E3CBE29098DCD005F73DD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				116E3CC529098EFE005F73DD /* CellViewModel.swift */,
+				116E3CC529098EFE005F73DD /* TableCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 				11E9F95128DA65CA0040D7B3 /* AppDelegate.swift in Sources */,
 				116E3CB029097B9B005F73DD /* R.generated.swift in Sources */,
 				114CBD4F2909487F00695106 /* Recipe.swift in Sources */,
-				116E3CC629098EFE005F73DD /* CellViewModel.swift in Sources */,
+				116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */,
 				11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */,
 				116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */,
 				11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */,
