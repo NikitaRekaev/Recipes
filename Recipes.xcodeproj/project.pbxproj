@@ -22,7 +22,7 @@
 		116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC529098EFE005F73DD /* TableCellViewModel.swift */; };
 		116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC829098FD0005F73DD /* CellRepresentable.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
-		11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* MainViewController.swift */; };
+		11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* ListViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
 		11E9F93E28DA62FB0040D7B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E9F93D28DA62FB0040D7B3 /* Assets.xcassets */; };
 		11E9F94128DA62FB0040D7B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E9F93F28DA62FB0040D7B3 /* LaunchScreen.storyboard */; };
@@ -47,7 +47,7 @@
 		116E3CC829098FD0005F73DD /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		11E9F93528DA62F90040D7B3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		11E9F93528DA62F90040D7B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		11E9F93B28DA62F90040D7B3 /* Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipes.xcdatamodel; sourceTree = "<group>"; };
 		11E9F93D28DA62FB0040D7B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11E9F94028DA62FB0040D7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		116E3CC029098DE1005F73DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				11E9F93528DA62F90040D7B3 /* MainViewController.swift */,
+				11E9F93528DA62F90040D7B3 /* ListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -420,7 +420,7 @@
 				116E3CB029097B9B005F73DD /* R.generated.swift in Sources */,
 				114CBD4F2909487F00695106 /* Recipe.swift in Sources */,
 				116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */,
-				11E9F93628DA62F90040D7B3 /* MainViewController.swift in Sources */,
+				11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */,
 				116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */,
 				11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */,
 				114CBD512909489900695106 /* RecipeBrief.swift in Sources */,
