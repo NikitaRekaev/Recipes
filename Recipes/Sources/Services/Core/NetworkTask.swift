@@ -18,10 +18,25 @@ struct NetworkRoutable: URLRequestConvertible {
     
 }
 
-// API Client is just a class. No need to use singleton in MVVM-C architectural pattern.
-
 final class NetworkTask {
+    
+    // MARK: - Public Methods
+    
+    func getAllRecipes(completion: @escaping (Result<RecipeListResponse, Error>) -> Void) {
+        let allRecipesRoute = NetworkRoutable(path: "recipes", method: .get, encoding: URLEncoding.default)
+        perform(allRecipesRoute, completion: completion)
+    }
+    
+    func getRecipe(uuid: String, completion: @escaping (Result<RecipeResponse, Error>) -> Void) {
+        let recipeRoute = NetworkRoutable(path: "recipes/" + uuid, method: .get, encoding: URLEncoding.default)
+        perform(recipeRoute, completion: completion)
+    }
+}
 
+// MARK: - Private Methods
+
+private extension NetworkTask {
+    
     private func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -45,7 +60,6 @@ final class NetworkTask {
         return result
     }
     
-    // GENERIC method
     private func perform<T: Decodable>(_ apiRoute: NetworkRoutable, completion: @escaping (Result<T, Error>) -> Void) {
         
         guard isConnectedToNetwork() else {
@@ -67,15 +81,4 @@ final class NetworkTask {
                 
             }
         }
-    
-    func getAllRecipes(completion: @escaping (Result<RecipeListResponse, Error>) -> Void) {
-        let allRecipesRoute = NetworkRoutable(path: "recipes", method: .get, encoding: URLEncoding.default)
-        perform(allRecipesRoute, completion: completion)
-    }
-    
-    func getRecipe(uuid: String, completion: @escaping (Result<RecipeResponse, Error>) -> Void) {
-        let recipeRoute = NetworkRoutable(path: "recipes/" + uuid, method: .get, encoding: URLEncoding.default)
-        perform(recipeRoute, completion: completion)
-    }
-    
 }
