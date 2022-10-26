@@ -149,7 +149,7 @@
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					11E9F92D28DA62F90040D7B3 = {
-						CreatedOnToolsVersion = 13.0;
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
