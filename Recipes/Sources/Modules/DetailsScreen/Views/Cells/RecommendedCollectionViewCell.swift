@@ -15,6 +15,7 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
                                                             for: indexPath) as? RecommendedCollectionViewCell else {
             return RecommendedCollectionViewCell()
         }
+        
         return cell
     }
     
