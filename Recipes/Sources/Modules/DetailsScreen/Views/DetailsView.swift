@@ -29,7 +29,7 @@ final class DetailsView: BaseView {
         let layoutRecipeImages = UICollectionViewFlowLayout()
         layoutRecipeImages.scrollDirection = .horizontal
         recipeImagesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layoutRecipeImages)
-        
+
         let layoutRecipeRecommendationsImages = UICollectionViewFlowLayout()
         layoutRecipeRecommendationsImages.scrollDirection = .horizontal
         recommendationImagesCollectionView = UICollectionView(frame: CGRect.zero,
@@ -55,24 +55,76 @@ final class DetailsView: BaseView {
     }
     
     override func configureUI() {
-        addSubview(scrollView)
+        addSubview()
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
             make.leading.trailing.equalTo(self)
         }
         
-        configureConstraintsRecipeImagesCollection()
-        configureConstraintsPageControl()
-        configureConstraintsRecipeNameTimestamp()
-        configureConstraintsDescription()
-        configureConstraintsDifficulty()
-        configureConstraintsInstruction()
-        configureConstraintsRecommendation()
+        recipeImagesCollectionView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(Constants.RecipeImageCollection.height)
+        }
+        
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalTo(recipeImagesCollectionView.snp.bottom)
+            make.centerX.equalTo(recipeImagesCollectionView.snp.centerX)
+        }
+        
+        timestampLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(recipeNameLabel.snp.bottom)
+            make.trailing.equalToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        recipeNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(recipeImagesCollectionView.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.equalToSuperview().inset(Constants.Inset.classic)
+            make.trailing.equalTo(timestampLabel.snp.leading).offset(-Constants.Inset.classic)
+        }
+        
+        descriptionTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(recipeNameLabel.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        difficultyTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(descriptionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        difficultyView.snp.makeConstraints { make in
+            make.top.equalTo(difficultyTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.equalToSuperview().inset(Constants.Inset.classic)
+            make.trailing.lessThanOrEqualToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        instructionTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(difficultyView.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        instructionTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(instructionTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
+        }
+        
+        recommendedTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(instructionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
+            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
+            
+        }
+        
+        recommendationImagesCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(recommendedTitleLabel.snp.bottom)
+            make.bottom.equalTo(contentView)
+            make.leading.trailing.equalTo(contentView)
+            make.height.equalTo(Constants.RecommendationImageCollection.height)
+        }
     }
 }
 
@@ -88,6 +140,23 @@ private extension DetailsView {
 // MARK: - Private Methods
 
 private extension DetailsView {
+    
+    func addSubview() {
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        [recipeImagesCollectionView,
+         pageControl,
+         timestampLabel,
+         recipeNameLabel,
+         descriptionTextLabel,
+         difficultyTitleLabel,
+         difficultyView,
+         instructionTitleLabel,
+         instructionTextLabel,
+         recommendedTitleLabel,
+         recommendationImagesCollectionView].forEach { contentView.addSubview($0) }
+    }
     
     func configureTitleLabels() {
         recommendedTitleLabel.font = UIFont.big
@@ -133,91 +202,6 @@ private extension DetailsView {
         recommendationImagesCollectionView.backgroundColor = .white
         recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
         recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
-    }
-    
-    func configureConstraintsRecipeImagesCollection() {
-        contentView.addSubview(recipeImagesCollectionView)
-        recipeImagesCollectionView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(Constants.RecipeImageCollection.height)
-        }
-    }
-    
-    func configureConstraintsPageControl() {
-        contentView.addSubview(pageControl)
-        pageControl.snp.makeConstraints { make in
-            make.bottom.equalTo(recipeImagesCollectionView.snp.bottom)
-            make.centerX.equalTo(recipeImagesCollectionView.snp.centerX)
-        }
-    }
-    
-    func configureConstraintsRecipeNameTimestamp() {
-        contentView.addSubview(timestampLabel)
-        timestampLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(recipeNameLabel.snp.bottom)
-            make.trailing.equalToSuperview().inset(Constants.Inset.classic)
-        }
-        
-        contentView.addSubview(recipeNameLabel)
-        recipeNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(recipeImagesCollectionView.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.equalToSuperview().inset(Constants.Inset.classic)
-            make.trailing.equalTo(timestampLabel.snp.leading).offset(-Constants.Inset.classic)
-        }
-    }
-    
-    func configureConstraintsDescription() {
-        contentView.addSubview(descriptionTextLabel)
-        descriptionTextLabel.snp.makeConstraints { make in
-            make.top.equalTo(recipeNameLabel.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
-        }
-    }
-    
-    func configureConstraintsDifficulty() {
-        contentView.addSubview(difficultyTitleLabel)
-        difficultyTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
-        }
-        
-        contentView.addSubview(difficultyView)
-        difficultyView.snp.makeConstraints { make in
-            make.top.equalTo(difficultyTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.equalToSuperview().inset(Constants.Inset.classic)
-            make.trailing.lessThanOrEqualToSuperview().inset(Constants.Inset.classic)
-        }
-    }
-    
-    func configureConstraintsInstruction() {
-        contentView.addSubview(instructionTitleLabel)
-        instructionTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(difficultyView.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
-        }
-        
-        contentView.addSubview(instructionTextLabel)
-        instructionTextLabel.snp.makeConstraints { make in
-            make.top.equalTo(instructionTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
-        }
-    }
-    
-    func configureConstraintsRecommendation() {
-        contentView.addSubview(recommendedTitleLabel)
-        recommendedTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(instructionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
-            make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
-            
-        }
-        
-        contentView.addSubview(recommendationImagesCollectionView)
-        recommendationImagesCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(recommendedTitleLabel.snp.bottom)
-            make.bottom.equalTo(contentView)
-            make.leading.trailing.equalTo(contentView)
-            make.height.equalTo(Constants.RecommendationImageCollection.height)
-        }
     }
 }
 
