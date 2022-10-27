@@ -1,3 +1,4 @@
+import Kingfisher
 import UIKit
 
 class RecommendedCollectionViewCell: UICollectionViewCell {
@@ -33,7 +34,7 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
     
     private var viewModel: RecommendedImageCollectionViewCellViewModel!
     
-    // MARK: - Init
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
