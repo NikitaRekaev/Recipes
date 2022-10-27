@@ -24,6 +24,8 @@
 		116E3CCB29099302005F73DD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CCA29099302005F73DD /* ListTableViewCell.swift */; };
 		116E3CCF290A5F39005F73DD /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CCE290A5F39005F73DD /* Values.swift */; };
 		116E3CD1290A629C005F73DD /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CD0290A629C005F73DD /* UIFont+AppFonts.swift */; };
+		116E3CD6290A675E005F73DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CD5290A675E005F73DD /* ListViewModel.swift */; };
+		116E3CD8290A6797005F73DD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CD7290A6797005F73DD /* Repository.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* ListViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
@@ -51,6 +53,8 @@
 		116E3CCA29099302005F73DD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		116E3CCE290A5F39005F73DD /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		116E3CD0290A629C005F73DD /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
+		116E3CD5290A675E005F73DD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		116E3CD7290A6797005F73DD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				116E3CC529098EFE005F73DD /* TableCellViewModel.swift */,
+				116E3CD5290A675E005F73DD /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,13 +171,6 @@
 				116E3CBB29098DBE005F73DD /* Model */,
 			);
 			path = ListScreen;
-			sourceTree = "<group>";
-		};
-		116E3CCC29099454005F73DD /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		116E3CCD290A5F25005F73DD /* Constants */ = {
@@ -261,10 +259,10 @@
 		11E9F95228DA66210040D7B3 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				116E3CCC29099454005F73DD /* Constants */,
 				11A2A06228EA06CA00AD9EC5 /* Coordinator */,
 				11E9F94B28DA63900040D7B3 /* Application */,
 				116E3CC829098FD0005F73DD /* CellRepresentable.swift */,
+				116E3CD7290A6797005F73DD /* Repository.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -445,7 +443,9 @@
 				116E3CB029097B9B005F73DD /* R.generated.swift in Sources */,
 				116E3CCF290A5F39005F73DD /* Values.swift in Sources */,
 				114CBD4F2909487F00695106 /* Recipe.swift in Sources */,
+				116E3CD8290A6797005F73DD /* Repository.swift in Sources */,
 				116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */,
+				116E3CD6290A675E005F73DD /* ListViewModel.swift in Sources */,
 				11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */,
 				116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */,
 				11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */,
