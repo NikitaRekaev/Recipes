@@ -18,6 +18,23 @@ final class Repository {
 
 extension Repository {
     
+    func recipeToRecipeForDetails(_ recipe: Recipe) -> DataForDetails {
+        let date = getDateForRecipeDetails(lastUpdated: recipe.lastUpdated)
+        
+        // description may be not provided or it can be empty
+        let description = recipe.description ?? Constants.Description.empty
+        
+        return DataForDetails(recipeID: recipe.uuid,
+                              name: formatText(recipe.name),
+                              imageLinks: recipe.images,
+                              lastUpdated: date,
+                              description: description,
+                              instructions: formatText(recipe.instructions),
+                              difficultyLevel: recipe.difficulty,
+                              similarRecipes: recipe.similar)
+        
+    }
+    
     func recipeListElementToRecipeForCell(_ recipe: RecipeListElement) -> DataForCell {
         return recipeRawToRecipeForCell(recipeListElementToRecipeRaw(recipe))
     }
@@ -49,10 +66,10 @@ extension Repository {
         default:
             mutableRecipes = recipes.filter { recipe -> Bool in
                 recipe.data.name.lowercased().contains(safeSearchText.lowercased()) ||
-                    
-                    (recipe.data.description?.lowercased().contains(safeSearchText.lowercased()) ?? false) ||
-                    
-                    recipe.data.instructions.lowercased().contains(safeSearchText.lowercased())
+                
+                (recipe.data.description?.lowercased().contains(safeSearchText.lowercased()) ?? false) ||
+                
+                recipe.data.instructions.lowercased().contains(safeSearchText.lowercased())
             }
         }
         
