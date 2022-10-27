@@ -34,6 +34,7 @@
 		116E3CEF290A778D005F73DD /* ErrorPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CEE290A778D005F73DD /* ErrorPageView.swift */; };
 		116E3CF1290A79F7005F73DD /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CF0290A79F7005F73DD /* CustomAlert.swift */; };
 		116E3CF7290A8873005F73DD /* DataForDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CF6290A8873005F73DD /* DataForDetails.swift */; };
+		116E3CFA290A88E7005F73DD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CF9290A88E7005F73DD /* DetailsViewController.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* ListViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
@@ -71,6 +72,7 @@
 		116E3CEE290A778D005F73DD /* ErrorPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageView.swift; sourceTree = "<group>"; };
 		116E3CF0290A79F7005F73DD /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		116E3CF6290A8873005F73DD /* DataForDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForDetails.swift; sourceTree = "<group>"; };
+		116E3CF9290A88E7005F73DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		116E3CF4290A8811005F73DD /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				116E3CF8290A88D0005F73DD /* Controllers */,
 				116E3CF5290A883F005F73DD /* Models */,
 			);
 			path = DetailsScreen;
@@ -248,6 +251,14 @@
 				116E3CF6290A8873005F73DD /* DataForDetails.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		116E3CF8290A88D0005F73DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				116E3CF9290A88E7005F73DD /* DetailsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		11A2A06228EA06CA00AD9EC5 /* Coordinator */ = {
@@ -533,6 +544,7 @@
 				114CBD562909499600695106 /* RecipeResponse.swift in Sources */,
 				116E3CD1290A629C005F73DD /* UIFont+AppFonts.swift in Sources */,
 				116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */,
+				116E3CFA290A88E7005F73DD /* DetailsViewController.swift in Sources */,
 				116E3CEB290A769C005F73DD /* ListView.swift in Sources */,
 				116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */,
 				116E3CCB29099302005F73DD /* ListTableViewCell.swift in Sources */,
