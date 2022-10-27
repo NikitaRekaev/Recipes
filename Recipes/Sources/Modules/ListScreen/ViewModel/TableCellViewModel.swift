@@ -19,3 +19,23 @@ final class TableCellViewModel {
     }
     
 }
+
+// MARK: - CellRepresentable Protocol
+
+extension TableCellViewModel: TableViewCellRepresentable {
+    
+    static func registerCell(tableView: UITableView) {
+        ListTableViewCell.registerCell(tableView: tableView)
+    }
+    
+    func dequeueCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = ListTableViewCell.dequeueCell(tableView: tableView, indexPath: indexPath)
+        cell.setupCellData(viewModel: self)
+        return cell
+    }
+    
+    func cellSelected() {
+        self.didSelectRecipe?(data.recipeID)
+    }
+    
+}
