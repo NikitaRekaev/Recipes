@@ -50,6 +50,7 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
 extension RecommendedCollectionViewCell {
     func setupCellData(viewModel: RecommendedImageCollectionViewCellViewModel) {
         self.viewModel = viewModel
+        
         imageLink = viewModel.imageLink
         titleLabel.text = viewModel.name
         
@@ -108,6 +109,7 @@ private extension Constants {
     struct RecipeImage {
         static let dividedBy = CGFloat(3 / 2)
     }
+    
     struct Gradient {
         static let colors = [UIColor.black.withAlphaComponent(0.74).cgColor, UIColor.white.withAlphaComponent(0).cgColor]
         static let locations = [NSNumber(0.0), NSNumber(0.5)]
