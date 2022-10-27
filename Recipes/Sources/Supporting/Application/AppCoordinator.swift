@@ -31,8 +31,7 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        // MARK: - Show List
-        
+        /// Show List
         let listCoordinator = ListCoordinator(rootNavigationController: rootNavigationController,
                                               repository: repository)
         
