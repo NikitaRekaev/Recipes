@@ -10,6 +10,8 @@ final class ListViewModel {
     
     var viewModels: [TableCellViewModel] = []
     
+    weak var coordinatorDelegate: ListViewModelCoordinatorDelegate?
+    
     private let repository: Repository
     
     // MARK: - Initialization
@@ -48,6 +50,10 @@ private extension ListViewModel {
     func viewModelFor(_ recipe: DataForCell) -> TableCellViewModel {
         let viewModel = TableCellViewModel(recipe: recipe)
         
+        viewModel.didSelectRecipe = { [weak self] recipeID in
+            self?.coordinatorDelegate?.didSelectRecipe(recipeID: recipeID)
+        }
+        
         viewModel.didReceiveError = { [weak self] error in
             self?.didReceiveError?(error)
         }
@@ -56,7 +62,7 @@ private extension ListViewModel {
     }
     
     func getDataFromNetwork() {
-        repository.apiClient?.getAllRecipes { response in
+        repository.networkTask?.getAllRecipes { response in
             
             switch response {
             case .success(let recipesContainer):
