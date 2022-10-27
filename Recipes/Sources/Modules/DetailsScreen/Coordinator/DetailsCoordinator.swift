@@ -1,6 +1,7 @@
 import UIKit
 
 protocol DetailsDelegate: Coordinator {
+    
     func didFinish(from coordinator: DetailsCoordinator)
 }
 
