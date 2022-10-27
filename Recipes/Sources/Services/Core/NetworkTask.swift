@@ -1,9 +1,9 @@
-import Foundation
 import Alamofire
+import Foundation
 import SystemConfiguration
 
 struct NetworkRoutable: URLRequestConvertible {
-    var baseURL: String = "https://test.kode-t.ru/"
+    var baseURL: String = Constants.API.baseURL
     var path: String
     var method: HTTPMethod
     var parameters: Parameters?
@@ -38,7 +38,11 @@ final class NetworkTask {
 private extension NetworkTask {
     
     private func isConnectedToNetwork() -> Bool {
-        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        var zeroAddress = sockaddr_in(sin_len: 0,
+                                      sin_family: 0,
+                                      sin_port: 0,
+                                      sin_addr: in_addr(s_addr: 0),
+                                      sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
         
@@ -66,7 +70,7 @@ private extension NetworkTask {
             completion(Result.failure(NetworkError.noInternet))
             return
         }
-    
+        
         let dataRequest = AF.request(apiRoute)
         dataRequest
             .validate(statusCode: 200..<300)
@@ -75,10 +79,10 @@ private extension NetworkTask {
                 case .success(let response):
                     completion(.success(response))
                 case .failure(_):
-                    // in current mockup we should not inform user about exact mistake
+                    
                     completion(Result.failure(NetworkError.basic))
                 }
                 
             }
-        }
+    }
 }

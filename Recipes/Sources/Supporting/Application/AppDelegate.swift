@@ -4,16 +4,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navController = UINavigationController(rootViewController: MainViewController())
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navController
-        window.makeKeyAndVisible()
-        window.overrideUserInterfaceStyle = .light
         self.window = window
+        self.window?.makeKeyAndVisible()
+        self.window?.overrideUserInterfaceStyle = .light
+        self.appCoordinator = AppCoordinator(window: window)
+        appCoordinator?.start()
+        
         return true
     }
 }
-
