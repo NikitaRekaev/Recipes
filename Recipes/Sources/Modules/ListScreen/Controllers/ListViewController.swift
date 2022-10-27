@@ -1,6 +1,6 @@
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: BaseViewController<ListView> {
 
     let viewModel: ListViewModel
     

@@ -30,6 +30,7 @@
 		116E3CE4290A726C005F73DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE3290A726C005F73DD /* AppCoordinator.swift */; };
 		116E3CE7290A75A7005F73DD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE6290A75A7005F73DD /* BaseView.swift */; };
 		116E3CE9290A7633005F73DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE8290A7633005F73DD /* BaseViewController.swift */; };
+		116E3CEB290A769C005F73DD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CEA290A769C005F73DD /* ListView.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* ListViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
@@ -63,6 +64,7 @@
 		116E3CE3290A726C005F73DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		116E3CE6290A75A7005F73DD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		116E3CE8290A7633005F73DD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		116E3CEA290A769C005F73DD /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +159,8 @@
 		116E3CBF29098DD4005F73DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				116E3CCA29099302005F73DD /* ListTableViewCell.swift */,
+				116E3CEC290A76D0005F73DD /* Cells */,
+				116E3CEA290A769C005F73DD /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,14 @@
 				116E3CE8290A7633005F73DD /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		116E3CEC290A76D0005F73DD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				116E3CCA29099302005F73DD /* ListTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		11A2A06228EA06CA00AD9EC5 /* Coordinator */ = {
@@ -486,6 +497,7 @@
 				114CBD562909499600695106 /* RecipeResponse.swift in Sources */,
 				116E3CD1290A629C005F73DD /* UIFont+AppFonts.swift in Sources */,
 				116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */,
+				116E3CEB290A769C005F73DD /* ListView.swift in Sources */,
 				116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */,
 				116E3CCB29099302005F73DD /* ListTableViewCell.swift in Sources */,
 				116E3CC229098E2A005F73DD /* SortCase.swift in Sources */,
