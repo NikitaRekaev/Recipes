@@ -5,12 +5,12 @@ final class Repository {
     
     // MARK: - Public
     
-    var apiClient: NetworkTask?
+    var networkTask: NetworkTask?
     
     // MARK: - Initialization
     
-    init(apiClient: NetworkTask) {
-        self.apiClient = apiClient
+    init(networkTask: NetworkTask) {
+        self.networkTask = networkTask
     }
 }
 
