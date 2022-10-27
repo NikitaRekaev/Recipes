@@ -96,7 +96,7 @@ private extension ListTableViewCell {
     }
     
     func configureTitleLabel() {
-        titleLabel.font = UIFont.systemFont(ofSize: Constants.Inset.huge, weight: .bold)
+        titleLabel.font = UIFont.enormous
         titleLabel.numberOfLines = Constants.Text.numberOfLinesStandart
         titleLabel.textColor = .darkGray
         titleLabel.minimumScaleFactor = Constants.Text.minimumScale
@@ -104,7 +104,7 @@ private extension ListTableViewCell {
     }
     
     func configureDescriptionLabel() {
-        descriptionLabel.font = UIFont.systemFont(ofSize: Constants.Inset.small)
+        descriptionLabel.font = UIFont.standart
         descriptionLabel.numberOfLines = Constants.Text.numberOfLinesStandart
         descriptionLabel.textColor = .systemGray
         descriptionLabel.minimumScaleFactor = Constants.Text.minimumScale
@@ -112,7 +112,7 @@ private extension ListTableViewCell {
     }
     
     func configureTimestampLabel() {
-        timestampLabel.font = UIFont.systemFont(ofSize: Constants.Inset.small)
+        timestampLabel.font = UIFont.standart
         timestampLabel.textColor = .darkGray
         timestampLabel.minimumScaleFactor = Constants.Text.minimumScale
         titleLabel.adjustsFontSizeToFitWidth = true
