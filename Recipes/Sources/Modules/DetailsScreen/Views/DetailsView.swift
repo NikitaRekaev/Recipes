@@ -59,6 +59,7 @@ final class DetailsView: BaseView {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
