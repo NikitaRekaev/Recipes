@@ -22,6 +22,7 @@
 		116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC529098EFE005F73DD /* TableCellViewModel.swift */; };
 		116E3CC929098FD0005F73DD /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CC829098FD0005F73DD /* CellRepresentable.swift */; };
 		116E3CCB29099302005F73DD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CCA29099302005F73DD /* ListTableViewCell.swift */; };
+		116E3CCF290A5F39005F73DD /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CCE290A5F39005F73DD /* Values.swift */; };
 		11A2A06428EA06FF00AD9EC5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */; };
 		11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93528DA62F90040D7B3 /* ListViewController.swift */; };
 		11E9F93C28DA62F90040D7B3 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11E9F93A28DA62F90040D7B3 /* Recipes.xcdatamodeld */; };
@@ -47,6 +48,7 @@
 		116E3CC529098EFE005F73DD /* TableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewModel.swift; sourceTree = "<group>"; };
 		116E3CC829098FD0005F73DD /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		116E3CCA29099302005F73DD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		116E3CCE290A5F39005F73DD /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		11A2A06328EA06FF00AD9EC5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		11E9F92E28DA62F90040D7B3 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9F93528DA62F90040D7B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		116E3CCD290A5F25005F73DD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				116E3CCE290A5F39005F73DD /* Values.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		11A2A06228EA06CA00AD9EC5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +230,7 @@
 		11E9F94928DA632E0040D7B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				116E3CCD290A5F25005F73DD /* Constants */,
 				116E3CAF29097B9B005F73DD /* R.generated.swift */,
 				11E9F93D28DA62FB0040D7B3 /* Assets.xcassets */,
 				11E9F93F28DA62FB0040D7B3 /* LaunchScreen.storyboard */,
@@ -429,6 +440,7 @@
 				114CBD5D29094AB500695106 /* Errors.swift in Sources */,
 				11E9F95128DA65CA0040D7B3 /* AppDelegate.swift in Sources */,
 				116E3CB029097B9B005F73DD /* R.generated.swift in Sources */,
+				116E3CCF290A5F39005F73DD /* Values.swift in Sources */,
 				114CBD4F2909487F00695106 /* Recipe.swift in Sources */,
 				116E3CC629098EFE005F73DD /* TableCellViewModel.swift in Sources */,
 				11E9F93628DA62F90040D7B3 /* ListViewController.swift in Sources */,
