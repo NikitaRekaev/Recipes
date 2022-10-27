@@ -105,10 +105,26 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `backgroundColor`.
+    static let backgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "backgroundColor")
+    /// Color `cellBackgroundColor`.
+    static let cellBackgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "cellBackgroundColor")
+    /// Color `launchScreenBackgroundColor`.
+    static let launchScreenBackgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "launchScreenBackgroundColor")
+    /// Color `pageControlColorMain`.
+    static let pageControlColorMain = Rswift.ColorResource(bundle: R.hostingBundle, name: "pageControlColorMain")
+    /// Color `pageControlColorSecondary`.
+    static let pageControlColorSecondary = Rswift.ColorResource(bundle: R.hostingBundle, name: "pageControlColorSecondary")
+    /// Color `tableBackgroundColor`.
+    static let tableBackgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "tableBackgroundColor")
+    /// Color `textColorSecondary`.
+    static let textColorSecondary = Rswift.ColorResource(bundle: R.hostingBundle, name: "textColorSecondary")
+    /// Color `textViewBackgroundColor`.
+    static let textViewBackgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "textViewBackgroundColor")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
@@ -119,11 +135,234 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "backgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func backgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.backgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "cellBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func cellBackgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.cellBackgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "launchScreenBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func launchScreenBackgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.launchScreenBackgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "pageControlColorMain", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func pageControlColorMain(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.pageControlColorMain, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "pageControlColorSecondary", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func pageControlColorSecondary(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.pageControlColorSecondary, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "tableBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func tableBackgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.tableBackgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "textColorSecondary", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func textColorSecondary(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.textColorSecondary, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "textViewBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func textViewBackgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.textViewBackgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func accentColor(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.accentColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "backgroundColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func backgroundColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.backgroundColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "cellBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func cellBackgroundColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.cellBackgroundColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "launchScreenBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func launchScreenBackgroundColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.launchScreenBackgroundColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "pageControlColorMain", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func pageControlColorMain(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.pageControlColorMain.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "pageControlColorSecondary", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func pageControlColorSecondary(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.pageControlColorSecondary.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "tableBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func tableBackgroundColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.tableBackgroundColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "textColorSecondary", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func textColorSecondary(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.textColorSecondary.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "textViewBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func textViewBackgroundColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.textViewBackgroundColor.name)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 9 images.
+  struct image {
+    /// Image `easy`.
+    static let easy = Rswift.ImageResource(bundle: R.hostingBundle, name: "easy")
+    /// Image `extreme`.
+    static let extreme = Rswift.ImageResource(bundle: R.hostingBundle, name: "extreme")
+    /// Image `hard`.
+    static let hard = Rswift.ImageResource(bundle: R.hostingBundle, name: "hard")
+    /// Image `logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `normal`.
+    static let normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "normal")
+    /// Image `placeholder`.
+    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
+    /// Image `shape-false`.
+    static let shapeFalse = Rswift.ImageResource(bundle: R.hostingBundle, name: "shape-false")
+    /// Image `shape-true`.
+    static let shapeTrue = Rswift.ImageResource(bundle: R.hostingBundle, name: "shape-true")
+    /// Image `unknown`.
+    static let unknown = Rswift.ImageResource(bundle: R.hostingBundle, name: "unknown")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "easy", bundle: ..., traitCollection: ...)`
+    static func easy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.easy, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "extreme", bundle: ..., traitCollection: ...)`
+    static func extreme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.extreme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "hard", bundle: ..., traitCollection: ...)`
+    static func hard(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.hard, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "normal", bundle: ..., traitCollection: ...)`
+    static func normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.normal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shape-false", bundle: ..., traitCollection: ...)`
+    static func shapeFalse(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shapeFalse, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "shape-true", bundle: ..., traitCollection: ...)`
+    static func shapeTrue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shapeTrue, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "unknown", bundle: ..., traitCollection: ...)`
+    static func unknown(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unknown, compatibleWith: traitCollection)
     }
     #endif
 
