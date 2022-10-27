@@ -34,7 +34,6 @@ final class DetailsCoordinator: Coordinator {
     override func finish() {
         delegate?.didFinish(from: self)
     }
-    
 }
 
 // MARK: - ViewModel Delegate
