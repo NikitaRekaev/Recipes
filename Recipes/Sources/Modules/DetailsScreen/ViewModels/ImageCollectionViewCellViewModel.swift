@@ -19,3 +19,21 @@ final class ImageCollectionViewCellViewModel {
     var didSelectImage: ((String) -> Void)?
     
 }
+
+// MARK: - CollectionViewCellRepresentable
+
+extension ImageCollectionViewCellViewModel: CollectionViewCellRepresentable {
+    static func registerCell(collectionView: UICollectionView) {
+        DetailsCollectionViewCell.registerCell(collectionView: collectionView)
+    }
+    
+    func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = DetailsCollectionViewCell.dequeueCell(collectionView: collectionView, indexPath: indexPath)
+        cell.setupCellData(viewModel: self)
+        return cell
+    }
+    
+    func cellSelected() {
+        self.didSelectImage?(data)
+    }
+}
