@@ -91,13 +91,12 @@ private extension ListTableViewCell {
     
     func configureRecipeImage() {
         recipeImageView.layer.masksToBounds = true
-        recipeImageView.layer.cornerRadius = 15
+        recipeImageView.layer.cornerRadius = Constants.Design.cornerRadiusMain
         recipeImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        
     }
     
     func configureTitleLabel() {
-        titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: Constants.Inset.huge, weight: .bold)
         titleLabel.numberOfLines = Constants.Text.numberOfLinesStandart
         titleLabel.textColor = .darkGray
         titleLabel.minimumScaleFactor = Constants.Text.minimumScale
@@ -105,7 +104,7 @@ private extension ListTableViewCell {
     }
     
     func configureDescriptionLabel() {
-        descriptionLabel.font = UIFont.systemFont(ofSize: 18)
+        descriptionLabel.font = UIFont.systemFont(ofSize: Constants.Inset.small)
         descriptionLabel.numberOfLines = Constants.Text.numberOfLinesStandart
         descriptionLabel.textColor = .systemGray
         descriptionLabel.minimumScaleFactor = Constants.Text.minimumScale
@@ -113,7 +112,7 @@ private extension ListTableViewCell {
     }
     
     func configureTimestampLabel() {
-        timestampLabel.font = UIFont.systemFont(ofSize: 18)
+        timestampLabel.font = UIFont.systemFont(ofSize: Constants.Inset.small)
         timestampLabel.textColor = .darkGray
         timestampLabel.minimumScaleFactor = Constants.Text.minimumScale
         titleLabel.adjustsFontSizeToFitWidth = true
@@ -130,38 +129,40 @@ private extension ListTableViewCell {
         [titleLabel, descriptionLabel].forEach { labelsContainer.addArrangedSubview($0) }
         
         recipeImageView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview().inset(Constants.Inset.classic)
             make.trailing.equalToSuperview()
             make.width.equalToSuperview().dividedBy(Constants.Image.widthDivision)
         }
         
         timestampLabel.snp.makeConstraints { make in
-            make.bottom.leading.equalToSuperview().inset(18)
-            make.trailing.lessThanOrEqualTo(recipeImageView.snp.leading).offset(-20)
+            make.bottom.leading.equalToSuperview().inset(Constants.Inset.small)
+            make.trailing.lessThanOrEqualTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
         }
         
         labelsContainer.snp.makeConstraints { make in
             make.top.equalTo(recipeImageView.snp.top)
             make.bottom.lessThanOrEqualTo(timestampLabel.snp.top).inset(-Constants.LabelsContainer.spacing)
-            make.leading.equalToSuperview().inset(18)
-            make.trailing.equalTo(recipeImageView.snp.leading).offset(-20)
+            make.leading.equalToSuperview().inset(Constants.Inset.small)
+            make.trailing.equalTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
         }
     }
 }
 
 // MARK: - Constants
 
-private enum Constants {
+private extension Constants {
     
     static let cellReuseIdentifier = "ListTableViewCell"
     
     struct Image {
         static let widthDivision = CGFloat(2.3)
     }
+    
     struct Text {
         static let minimumScale = CGFloat(0.85)
         static let numberOfLinesStandart = 2
     }
+    
     struct LabelsContainer {
         static let spacing = CGFloat(7)
     }
