@@ -14,7 +14,7 @@ final class RecommendedImageCollectionViewCellViewModel {
     var didUpdate: ((RecommendedImageCollectionViewCellViewModel) -> Void)?
     var didSelectRecommendedRecipe: ((String) -> Void)?
     
-    // MARK: - Lifecycle
+    // MARK: - Initialization
     
     init(name: String, imageLink: String, uuid: String) {
         self.name = name
