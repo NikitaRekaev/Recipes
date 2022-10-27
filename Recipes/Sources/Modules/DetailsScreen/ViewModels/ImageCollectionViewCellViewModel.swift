@@ -6,7 +6,7 @@ final class ImageCollectionViewCellViewModel {
     
     let data: String
     
-    // MARK: - Init
+    // MARK: - Initialization
     
     init(imageLink: String) {
         self.data = imageLink
