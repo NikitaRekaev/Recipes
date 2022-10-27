@@ -3,7 +3,7 @@ import Foundation
 import SystemConfiguration
 
 struct NetworkRoutable: URLRequestConvertible {
-    var baseURL: String = "https://test.kode-t.ru/"
+    var baseURL: String = Constants.API.baseURL
     var path: String
     var method: HTTPMethod
     var parameters: Parameters?
