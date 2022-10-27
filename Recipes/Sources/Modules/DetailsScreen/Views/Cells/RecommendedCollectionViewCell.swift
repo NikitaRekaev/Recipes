@@ -1,4 +1,5 @@
 import Kingfisher
+import SnapKit
 import UIKit
 
 class RecommendedCollectionViewCell: UICollectionViewCell {
