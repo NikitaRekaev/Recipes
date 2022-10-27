@@ -3,8 +3,6 @@ import UIKit
 
 final class Repository {
     
-    // MARK: - Public
-    
     var networkTask: NetworkTask?
     
     // MARK: - Initialization
@@ -97,6 +95,23 @@ extension Repository {
 // MARK: - Private Methods
 
 private extension Repository {
+    
+    func recipeToDetails(_ recipe: Recipe) -> DataForDetails {
+        let date = getDateForRecipeDetails(lastUpdated: recipe.lastUpdated)
+        
+        /// description may be not provided or it can be empty
+        let description = recipe.description ?? Constants.Description.empty
+        
+        return DataForDetails(recipeID: recipe.uuid,
+                              name: formatText(recipe.name),
+                              imageLinks: recipe.images,
+                              lastUpdated: date,
+                              description: description,
+                              instructions: formatText(recipe.instructions),
+                              difficultyLevel: recipe.difficulty,
+                              similarRecipes: recipe.similar)
+        
+    }
     
     func recipeRawToRecipeForCell(_ recipe: RecipeDataRaw) -> DataForCell {
         
