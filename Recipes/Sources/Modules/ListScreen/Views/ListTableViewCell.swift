@@ -37,9 +37,8 @@ class ListTableViewCell: UITableViewCell {
             descriptionLabel.text = recipe.description
             timestampLabel.text = recipe.lastUpdated
             
-            /// set first image of recipe
             recipeImageView.kf.indicatorType = .activity
-            recipeImageView.kf.setImage(with: URL(string: recipe.imageLink), placeholder: UIImage(named: "Placeholder"))
+            recipeImageView.kf.setImage(with: URL(string: recipe.imageLink), placeholder: R.image.placeholder())
         }
     }
     
@@ -128,6 +127,7 @@ private extension ListTableViewCell {
     
     func configureUI() {
         [recipeImageView, labelsContainer, timestampLabel].forEach { addSubview($0) }
+        [titleLabel, descriptionLabel].forEach { labelsContainer.addArrangedSubview($0) }
         
         recipeImageView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(20)
@@ -146,9 +146,6 @@ private extension ListTableViewCell {
             make.leading.equalToSuperview().inset(18)
             make.trailing.equalTo(recipeImageView.snp.leading).offset(-20)
         }
-
-        labelsContainer.addArrangedSubview(titleLabel)
-        labelsContainer.addArrangedSubview(descriptionLabel)
     }
 }
 
@@ -156,7 +153,7 @@ private extension ListTableViewCell {
 
 private enum Constants {
     
-    static let cellReuseIdentifier = "RecipeTableViewCell"
+    static let cellReuseIdentifier = "ListTableViewCell"
     
     struct Image {
         static let widthDivision = CGFloat(2.3)
