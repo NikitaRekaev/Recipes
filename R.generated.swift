@@ -282,7 +282,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `easy`.
     static let easy = Rswift.ImageResource(bundle: R.hostingBundle, name: "easy")
@@ -290,6 +290,8 @@ struct R: Rswift.Validatable {
     static let extreme = Rswift.ImageResource(bundle: R.hostingBundle, name: "extreme")
     /// Image `hard`.
     static let hard = Rswift.ImageResource(bundle: R.hostingBundle, name: "hard")
+    /// Image `insane`.
+    static let insane = Rswift.ImageResource(bundle: R.hostingBundle, name: "insane")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `normal`.
@@ -321,6 +323,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "hard", bundle: ..., traitCollection: ...)`
     static func hard(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.hard, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "insane", bundle: ..., traitCollection: ...)`
+    static func insane(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.insane, compatibleWith: traitCollection)
     }
     #endif
 
