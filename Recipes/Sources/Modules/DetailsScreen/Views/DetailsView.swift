@@ -1,12 +1,12 @@
 import SnapKit
 import UIKit
 
-final class DetailsView: UIView {
+final class DetailsView: BaseView {
     
     // MARK: - Properties
     
-    let recipeImagesCollectionView: UICollectionView
-    let recommendationImagesCollectionView: UICollectionView
+    var recipeImagesCollectionView: UICollectionView
+    var recommendationImagesCollectionView: UICollectionView
     let pageControl = UIPageControl()
     let recipeNameLabel = UILabel()
     let timestampLabel = UILabel()
@@ -23,7 +23,7 @@ final class DetailsView: UIView {
     
     var didPressSortByButton: (() -> Void)?
     
-    // MARK: - Initalization
+    // MARK: - Initialization
     
     init() {
         let layoutRecipeImages = UICollectionViewFlowLayout()
@@ -34,13 +34,44 @@ final class DetailsView: UIView {
         layoutRecipeRecommendationsImages.scrollDirection = .horizontal
         recommendationImagesCollectionView = UICollectionView(frame: CGRect.zero,
                                                               collectionViewLayout: layoutRecipeRecommendationsImages)
-        
         super.init(frame: CGRect.zero)
-        configureAppearance()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Configure
+    
+    override func configureAppearance() {
+        backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        configureTitleLabels()
+        configureTextLabels()
+        configureRecipeNameLabel()
+        configureTimestampLabel()
+        configureRecipeImagesCollection()
+        configureRecipeRecommendationsImagesCollection()
+    }
+    
+    override func configureUI() {
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(scrollView)
+            make.leading.trailing.equalTo(self)
+        }
+        
+        configureConstraintsRecipeImagesCollection()
+        configureConstraintsPageControl()
+        configureConstraintsRecipeNameTimestamp()
+        configureConstraintsDescription()
+        configureConstraintsDifficulty()
+        configureConstraintsInstruction()
+        configureConstraintsRecommendation()
     }
 }
 
@@ -56,22 +87,6 @@ private extension DetailsView {
 // MARK: - Private Methods
 
 private extension DetailsView {
-    
-    func configureAppearance() {
-        backgroundColor = .white
-        scrollView.showsVerticalScrollIndicator = false
-        configureUI()
-        configureConstraints()
-    }
-    
-    func configureUI() {
-        configureTitleLabels()
-        configureTextLabels()
-        configureRecipeNameLabel()
-        configureTimestampLabel()
-        configureRecipeImagesCollection()
-        configureRecipeRecommendationsImagesCollection()
-    }
     
     func configureTitleLabels() {
         recommendedTitleLabel.font = UIFont.big
@@ -117,26 +132,6 @@ private extension DetailsView {
         recommendationImagesCollectionView.backgroundColor = .white
         recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
         recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
-    }
-    
-    func configureConstraints() {
-        addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        scrollView.addSubview(contentView)
-        contentView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(scrollView)
-            make.leading.trailing.equalTo(self)
-        }
-        
-        configureConstraintsRecipeImagesCollection()
-        configureConstraintsPageControl()
-        configureConstraintsRecipeNameTimestamp()
-        configureConstraintsDescription()
-        configureConstraintsDifficulty()
-        configureConstraintsInstruction()
-        configureConstraintsRecommendation()
     }
     
     func configureConstraintsRecipeImagesCollection() {
