@@ -39,5 +39,4 @@ final class AppCoordinator: Coordinator {
         addChildCoordinator(listCoordinator)
         listCoordinator.start()
     }
-    
 }
