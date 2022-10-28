@@ -44,7 +44,7 @@ final class DetailsView: BaseView {
     // MARK: - Configure
     
     override func configureAppearance() {
-        backgroundColor = .white
+        backgroundColor = R.color.backgroundColor()
         scrollView.showsVerticalScrollIndicator = false
         configureTitleLabels()
         configureTextLabels()
@@ -97,35 +97,35 @@ private extension DetailsView {
     
     func configureTitleLabels() {
         recommendedTitleLabel.font = UIFont.big
-        recommendedTitleLabel.textColor = .darkGray
+        recommendedTitleLabel.textColor = R.color.textColorSecondary()
         
         instructionTitleLabel.font = UIFont.big
-        instructionTitleLabel.textColor = .darkGray
+        instructionTitleLabel.textColor = R.color.textColorSecondary()
         
         difficultyTitleLabel.font = UIFont.big
-        difficultyTitleLabel.textColor = .darkGray
+        difficultyTitleLabel.textColor = R.color.textColorSecondary()
     }
     
     func configureTextLabels() {
         instructionTextLabel.font = UIFont.thin
-        instructionTextLabel.textColor = .gray
+        instructionTextLabel.textColor = R.color.textColorSecondary()
         instructionTextLabel.numberOfLines = .zero
         
         descriptionTextLabel.font = UIFont.thin
-        descriptionTextLabel.textColor = .gray
+        descriptionTextLabel.textColor = R.color.textColorSecondary()
         descriptionTextLabel.numberOfLines = .zero
     }
     
     func configureRecipeNameLabel() {
         recipeNameLabel.numberOfLines = Constants.Text.numberOfLinesStandart
         recipeNameLabel.font = UIFont.huge
-        recipeNameLabel.textColor = .darkGray
+        recipeNameLabel.textColor = R.color.textColorSecondary()
         
     }
     
     func configureTimestampLabel() {
         timestampLabel.font = UIFont.thin
-        timestampLabel.textColor = .darkGray
+        timestampLabel.textColor = R.color.textColorSecondary()
     }
     
     func configureRecipeImagesCollection() {
@@ -136,7 +136,7 @@ private extension DetailsView {
     
     func configureRecipeRecommendationsImagesCollection() {
         recommendationImagesCollectionView.showsHorizontalScrollIndicator = false
-        recommendationImagesCollectionView.backgroundColor = .white
+        recommendationImagesCollectionView.backgroundColor = R.color.backgroundColor()
         recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
         recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
     }
