@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         self.window?.makeKeyAndVisible()
-        self.window?.overrideUserInterfaceStyle = .light
         self.appCoordinator = AppCoordinator(window: window)
         appCoordinator?.start()
         
