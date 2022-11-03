@@ -12,6 +12,52 @@ Simply run `pod install` and press Run button.
 
 ## Overview
 
+<table>
+	<thead>
+		<tr>
+			<th>Launch</th>
+			<th>ScrollTable</th>
+      <th>Search</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<img width="250" src="Resources/LaunchScreen.gif">
+			</td>
+			<td>
+				<img width="250" src="Resources/ScrollTable.gif">
+        </td>
+			<td>
+        <img width="250" src="Resources/Search.gif">
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<thead>
+		<tr>
+			<th>Sorting</th>
+			<th>Details</th>
+      <th>Recommendation</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<img width="250" src="Resources/Sort.gif">
+			</td>
+			<td>
+				<img width="250" src="Resources/DetailsScreen.gif">
+        </td>
+			<td>
+        <img width="250" src="Resources/Recomendation.gif">
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 ## Description of features
 1. Custom LaunchScreen
 2. Search by name
