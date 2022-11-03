@@ -79,10 +79,10 @@ A: I wanted to try this technology because before that I had already laid out th
 Q: Why used [Alamofire](https://github.com/Alamofire/Alamofire) and [Kingfisher](https://github.com/onevcat/Kingfisher)? </br>
 A: To simplify working with the network, since an [example](https://github.com/NikitaRekaev/Coder) of a native implementation already exists.
 
-Q: Why used [SwiftLint](https://github.com/realm/SwiftLint)?
+Q: Why used [SwiftLint](https://github.com/realm/SwiftLint)? </br>
 A: For style code control and additional static analysis.
 
-Q: Why used [R.swift](https://github.com/mac-cain13/R.swift)?
+Q: Why used [R.swift](https://github.com/mac-cain13/R.swift)? </br>
 A: For when generating, in particular laying paths to assets.
 
 ## Technical Requirements
