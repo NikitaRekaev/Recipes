@@ -27,9 +27,9 @@ Simply run `pod install` and press Run button.
 			</td>
 			<td>
 				<img width="250" src="Resources/ScrollTable.gif">
-        </td>
+                       </td>
 			<td>
-        <img width="250" src="Resources/Search.gif">
+                                <img width="250" src="Resources/Search.gif">
 			</td>
 		</tr>
 	</tbody>
@@ -40,7 +40,7 @@ Simply run `pod install` and press Run button.
 		<tr>
 			<th>Sorting</th>
 			<th>Details</th>
-      <th>Recommendation</th>
+                        <th>Recommendation</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -50,9 +50,9 @@ Simply run `pod install` and press Run button.
 			</td>
 			<td>
 				<img width="250" src="Resources/DetailsScreen.gif">
-        </td>
+                        </td>
 			<td>
-        <img width="250" src="Resources/Recomendation.gif">
+                                <img width="250" src="Resources/Recomendation.gif">
 			</td>
 		</tr>
 	</tbody>
