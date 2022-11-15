@@ -2,13 +2,25 @@
 
 ## Contents
 1. [Installation](#installation)
-2. [Overview](#overview)
-3. [Description of features](#description-of-features)
-4. [FAQ](#faq)
-5. [Technical Requirements](#technical-requirements)
+2. [Technical Requirements](#technical-requirements)
+3. [Overview](#overview)
+4. [Description of features](#description-of-features)
+5. [FAQ](#faq)
 
 ## Installation
 Simply run `pod install` and press Run button.
+
+## Technical Requirements
+
+* iOS 13+
+* Swift 5
+* UIKit
+* SnapKit
+* Alamofire
+* Kingfisher
+* SwiftLint
+* R.swift
+* MVVM-C
 
 ## Overview
 
@@ -84,15 +96,3 @@ A: For style code control and additional static analysis.
 
 Q: Why used [R.swift](https://github.com/mac-cain13/R.swift)? </br>
 A: For when generating, in particular laying paths to assets.
-
-## Technical Requirements
-
-* iOS 13+
-* Swift 5
-* UIKit
-* SnapKit
-* Alamofire
-* Kingfisher
-* SwiftLint
-* R.swift
-* MVVM-C
