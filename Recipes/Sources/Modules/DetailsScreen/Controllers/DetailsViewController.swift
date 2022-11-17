@@ -25,12 +25,12 @@ class DetailsViewController: BaseViewController<DetailsView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRecipeImagesCollectionView()
-        setupRecipeImagesRecommendationsCollectionView()
+        setRecipeImagesCollectionView()
+        setRecommendationsImagesCollectionView()
         bindToViewModel()
         viewModel.reloadData()
         
-        setupCustomAlert(alertView)
+        setCustomAlert(alertView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +47,7 @@ class DetailsViewController: BaseViewController<DetailsView> {
 
 extension DetailsViewController {
     
-    func setupRecipeData(recipe: DataForDetails) {
+    func setRecipeData(recipe: DataForDetails) {
         if recipe.imageLinks.count < 2 {
             selfView.pageControl.isHidden = true
         } else {
@@ -163,14 +163,14 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
 
 private extension DetailsViewController {
     
-    func setupRecipeImagesCollectionView() {
+    func setRecipeImagesCollectionView() {
         selfView.recipeImagesCollectionView.delegate = self
         selfView.recipeImagesCollectionView.dataSource = self
         ImageCollectionViewCellViewModel.registerCell(collectionView: self.selfView.recipeImagesCollectionView)
         selfView.recipeImagesCollectionView.reloadData()
     }
     
-    func setupRecipeImagesRecommendationsCollectionView() {
+    func setRecommendationsImagesCollectionView() {
         selfView.recommendationImagesCollectionView.delegate = self
         selfView.recommendationImagesCollectionView.dataSource = self
         RecommendedCollectionViewCell.registerCell(collectionView: self.selfView.recommendationImagesCollectionView)
@@ -191,7 +191,7 @@ private extension DetailsViewController {
     
     func didFinishUpdating() {
         if let recipe = viewModel.recipe {
-            setupRecipeData(recipe: recipe)
+            setRecipeData(recipe: recipe)
             selfView.recipeImagesCollectionView.reloadData()
             hideCustomAlert(alertView)
         }
