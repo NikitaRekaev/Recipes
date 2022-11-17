@@ -34,7 +34,7 @@ class DetailsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createConstraints()
+        setViewPosition()
     }
     
     required init?(coder: NSCoder) {
@@ -43,16 +43,16 @@ class DetailsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public Methods
     
-    func setupCellData(viewModel: ImageCollectionViewCellViewModel) {
+    func setCellData(viewModel: ImageCollectionViewCellViewModel) {
         self.viewModel = viewModel
         imageLink = viewModel.data
         
-        viewModel.didUpdate = self.setupCellData
+        viewModel.didUpdate = self.setCellData
     }
     
     // MARK: - Private Methods
     
-    private func createConstraints() {
+    private func setViewPosition() {
         addSubview(recipeImageView)
         recipeImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
