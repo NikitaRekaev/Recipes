@@ -29,7 +29,7 @@ extension ImageCollectionViewCellViewModel: CollectionViewCellRepresentable {
     
     func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = DetailsCollectionViewCell.dequeueCell(collectionView: collectionView, indexPath: indexPath)
-        cell.setupCellData(viewModel: self)
+        cell.setCellData(viewModel: self)
         return cell
     }
     

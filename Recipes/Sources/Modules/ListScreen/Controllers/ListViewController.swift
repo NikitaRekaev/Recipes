@@ -34,14 +34,14 @@ class ListViewController: BaseViewController<ListView> {
         super.viewDidLoad()
         navigationItem.backButtonTitle = Constants.BackButton.text
         
-        setupNavigationItem()
-        setupTableView()
-        setupSearchController()
+        setNavigationItem()
+        setTableView()
+        setSearchController()
         
         bindToViewModel()
         viewModel.reloadData()
         
-        setupCustomAlert(alertView)
+        setCustomAlert(alertView)
     }
 }
 
@@ -165,11 +165,11 @@ private extension ListViewController {
 
 private extension ListViewController {
     
-    func setupSearchController() {
+    func setSearchController() {
         selfView.searchController.searchBar.delegate = self
     }
     
-    func setupNavigationItem() {
+    func setNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.SortByButton.title,
                                                             style: .plain,
                                                             target: self,
@@ -179,7 +179,7 @@ private extension ListViewController {
         navigationItem.searchController = selfView.searchController
     }
     
-    func setupTableView() {
+    func setTableView() {
         selfView.tableView.delegate = self
         selfView.tableView.dataSource = self
         TableCellViewModel.registerCell(tableView: selfView.tableView)

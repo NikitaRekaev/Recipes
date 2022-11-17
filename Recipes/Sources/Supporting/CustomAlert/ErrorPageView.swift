@@ -3,22 +3,23 @@ import UIKit
 
 class ErrorPageView: UIView {
     
-    /// for action
     var didPressButton: (() -> Void)?
     
     // MARK: - Properties
     
-    private let errorBox = UIStackView()
-    private let titleTextLabel = UILabel()
-    private let descriptionTextLabel = UILabel()
-    private let mainButton = UIButton(type: .system)
+    private let errorBox = ErrorPageView.makeErrorBox()
+    private let titleTextLabel = ErrorPageView.makeTitleLabel()
+    private let descriptionTextLabel = ErrorPageView.makeDescriptionLabel()
+    private let mainButton = ErrorPageView.makeRefreshButton()
     
     // MARK: - Initialization
     
     init() {
         super.init(frame: CGRect.zero)
-        configureAppearance()
         mainButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
+        setViewAppearance()
+        setViewPosition()
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +30,7 @@ class ErrorPageView: UIView {
 // MARK: - Public Methods
 
 extension ErrorPageView {
+    
     func setData(with title: String, message: String, buttonText: String) {
         titleTextLabel.text = title
         descriptionTextLabel.text = message
@@ -40,6 +42,7 @@ extension ErrorPageView {
 
 @objc
 private extension ErrorPageView {
+    
     func buttonPressed() {
         didPressButton?()
     }
@@ -49,45 +52,12 @@ private extension ErrorPageView {
 
 private extension ErrorPageView {
     
-    func configureAppearance() {
+    func setViewAppearance() {
         isHidden = true
         backgroundColor = .white
-        
-        configureErrorBox()
-        configureTitleLabel()
-        configureDescriptionLabel()
-        configureRefreshButton()
-        configureUI()
     }
     
-    func configureErrorBox() {
-        errorBox.alignment = .center
-        errorBox.axis = .vertical
-        errorBox.spacing = Constants.Design.spacingMain
-    }
-    
-    func configureTitleLabel() {
-        titleTextLabel.font = UIFont.big
-        titleTextLabel.numberOfLines = .zero
-    }
-    
-    func configureDescriptionLabel() {
-        descriptionTextLabel.numberOfLines = .zero
-        descriptionTextLabel.textAlignment = .center
-        descriptionTextLabel.font = UIFont.standart
-    }
-    
-    func configureRefreshButton() {
-        mainButton.backgroundColor = .none
-        mainButton.titleLabel?.font = UIFont.standart
-        mainButton.setTitleColor(.systemBlue, for: .normal)
-        mainButton.setTitleColor(.black, for: .selected)
-        mainButton.layer.cornerRadius = Constants.Design.cornerRadiusError
-        mainButton.layer.borderWidth = Constants.Design.borderWidth
-        mainButton.layer.borderColor = UIColor.systemBlue.cgColor
-    }
-    
-    func configureUI() {
+    func setViewPosition() {
         addSubview(errorBox)
         errorBox.snp.makeConstraints { make in
             make.leading.equalTo(Constants.Design.basicInset)
@@ -105,9 +75,58 @@ private extension ErrorPageView {
     }
 }
 
+// MARK: - Creating SubViews
+
+private extension ErrorPageView {
+    
+    static func makeErrorBox() -> UIStackView {
+        let errorBox = UIStackView()
+        
+        errorBox.alignment = .center
+        errorBox.axis = .vertical
+        errorBox.spacing = Constants.Design.spacingMain
+        
+        return errorBox
+    }
+    
+    static func makeTitleLabel() -> UILabel {
+        let titleTextLabel = UILabel()
+        
+        titleTextLabel.font = UIFont.big
+        titleTextLabel.numberOfLines = .zero
+        
+        return titleTextLabel
+    }
+    
+    static func makeDescriptionLabel() -> UILabel {
+        let descriptionTextLabel = UILabel()
+        
+        descriptionTextLabel.numberOfLines = .zero
+        descriptionTextLabel.textAlignment = .center
+        descriptionTextLabel.font = UIFont.standart
+        
+        return descriptionTextLabel
+    }
+    
+    static func makeRefreshButton() -> UIButton {
+        let mainButton = UIButton(type: .system)
+        
+        mainButton.backgroundColor = .none
+        mainButton.titleLabel?.font = UIFont.standart
+        mainButton.setTitleColor(.systemBlue, for: .normal)
+        mainButton.setTitleColor(.black, for: .selected)
+        mainButton.layer.cornerRadius = Constants.Design.cornerRadiusError
+        mainButton.layer.borderWidth = Constants.Design.borderWidth
+        mainButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        return mainButton
+    }
+}
+
 // MARK: - Constants
 
 private extension Constants {
+    
     struct Button {
         static let height = CGFloat(45)
         static let divison = CGFloat(1.15)

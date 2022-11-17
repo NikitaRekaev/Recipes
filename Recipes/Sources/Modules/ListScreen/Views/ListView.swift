@@ -10,11 +10,12 @@ final class ListView: BaseView {
     
     // MARK: - Configure
     
-    override func configureAppearance() {
+    override func setViewAppearance() {
         backgroundColor = .white
+        setTableView()
     }
     
-    override func configureUI() {
+    override func setViewPosition() {
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -25,7 +26,8 @@ final class ListView: BaseView {
 // MARK: - Private Methods
 
 private extension ListView {
-    private func setupTableView() {
+    
+    private func setTableView() {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
