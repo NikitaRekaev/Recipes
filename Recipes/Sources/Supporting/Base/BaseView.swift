@@ -4,8 +4,8 @@ class BaseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureAppearance()
-        configureUI()
+        setViewAppearance()
+        setViewPosition()
     }
     
     required init?(coder: NSCoder) {
@@ -13,8 +13,8 @@ class BaseView: UIView {
     }
     
     /// Configure your baseview here.
-    func configureAppearance() { }
+    func setViewAppearance() { }
     
     /// Add and Layout your subviews here.
-    func configureUI() { }
+    func setViewPosition() { }
 }
