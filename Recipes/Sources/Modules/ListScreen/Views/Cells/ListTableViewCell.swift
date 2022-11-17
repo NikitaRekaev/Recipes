@@ -2,7 +2,7 @@ import Kingfisher
 import SnapKit
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+final class ListTableViewCell: UITableViewCell {
     
     // MARK: - Self creating
     
@@ -25,11 +25,11 @@ class ListTableViewCell: UITableViewCell {
     
     var didPressButton: (() -> Void)?
     
-    private let recipeImageView = UIImageView()
-    private let labelsContainer = UIStackView()
-    private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let timestampLabel = UILabel()
+    private let recipeImageView = ListTableViewCell.makeRecipeImage()
+    private let labelsContainer = ListTableViewCell.makeLabelsContainer()
+    private let titleLabel = ListTableViewCell.makeTitleLabel()
+    private let descriptionLabel = ListTableViewCell.makeDescriptionLabel()
+    private let timestampLabel = ListTableViewCell.makeTimestampLabel()
     
     private var recipe: DataForCell! {
         didSet {
@@ -46,7 +46,7 @@ class ListTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureAppearance()
+        setViewPosition()
     }
     
     required init?(coder: NSCoder) {
@@ -80,51 +80,7 @@ private extension ListTableViewCell {
 
 private extension ListTableViewCell {
     
-    func configureAppearance() {
-        configureRecipeImage()
-        configureTitleLabel()
-        configureDescriptionLabel()
-        configureTimestampLabel()
-        configureLabelsContainer()
-        configureUI()
-    }
-    
-    func configureRecipeImage() {
-        recipeImageView.layer.masksToBounds = true
-        recipeImageView.layer.cornerRadius = Constants.Design.cornerRadiusMain
-        recipeImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-    }
-    
-    func configureTitleLabel() {
-        titleLabel.font = UIFont.enormous
-        titleLabel.numberOfLines = Constants.Text.numberOfLinesStandart
-        titleLabel.textColor = .darkGray
-        titleLabel.minimumScaleFactor = Constants.Text.minimumScale
-        titleLabel.adjustsFontSizeToFitWidth = true
-    }
-    
-    func configureDescriptionLabel() {
-        descriptionLabel.font = UIFont.standart
-        descriptionLabel.numberOfLines = Constants.Text.numberOfLinesStandart
-        descriptionLabel.textColor = .systemGray
-        descriptionLabel.minimumScaleFactor = Constants.Text.minimumScale
-        titleLabel.adjustsFontSizeToFitWidth = true
-    }
-    
-    func configureTimestampLabel() {
-        timestampLabel.font = UIFont.standart
-        timestampLabel.textColor = .darkGray
-        timestampLabel.minimumScaleFactor = Constants.Text.minimumScale
-        titleLabel.adjustsFontSizeToFitWidth = true
-    }
-    
-    func configureLabelsContainer() {
-        labelsContainer.alignment = .leading
-        labelsContainer.axis = .vertical
-        labelsContainer.spacing = Constants.LabelsContainer.spacing
-    }
-    
-    func configureUI() {
+    func setViewPosition() {
         [recipeImageView, labelsContainer, timestampLabel].forEach { addSubview($0) }
         [titleLabel, descriptionLabel].forEach { labelsContainer.addArrangedSubview($0) }
         
@@ -145,6 +101,64 @@ private extension ListTableViewCell {
             make.leading.equalToSuperview().inset(Constants.Inset.small)
             make.trailing.equalTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
         }
+    }
+}
+
+// MARK: - Creating SubViews
+
+private extension ListTableViewCell {
+    
+    static func makeRecipeImage() -> UIImageView {
+        let recipeImageView = UIImageView()
+        
+        recipeImageView.layer.masksToBounds = true
+        recipeImageView.layer.cornerRadius = Constants.Design.cornerRadiusMain
+        recipeImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        
+        return recipeImageView
+    }
+    
+    static func makeTitleLabel() -> UILabel {
+        let titleLabel = UILabel()
+        
+        titleLabel.font = UIFont.enormous
+        titleLabel.numberOfLines = Constants.Text.numberOfLinesStandart
+        titleLabel.textColor = .darkGray
+        titleLabel.minimumScaleFactor = Constants.Text.minimumScale
+        titleLabel.adjustsFontSizeToFitWidth = true
+        
+        return titleLabel
+    }
+    
+    static func makeDescriptionLabel() -> UILabel {
+        let descriptionLabel = UILabel()
+        
+        descriptionLabel.font = UIFont.standart
+        descriptionLabel.numberOfLines = Constants.Text.numberOfLinesStandart
+        descriptionLabel.textColor = .systemGray
+        descriptionLabel.minimumScaleFactor = Constants.Text.minimumScale
+        
+        return descriptionLabel
+    }
+    
+    static func makeTimestampLabel() -> UILabel {
+        let timestampLabel = UILabel()
+        
+        timestampLabel.font = UIFont.standart
+        timestampLabel.textColor = .darkGray
+        timestampLabel.minimumScaleFactor = Constants.Text.minimumScale
+        
+        return timestampLabel
+    }
+    
+    static func makeLabelsContainer() -> UIStackView {
+        let labelsContainer = UIStackView()
+        
+        labelsContainer.alignment = .leading
+        labelsContainer.axis = .vertical
+        labelsContainer.spacing = Constants.LabelsContainer.spacing
+        
+        return labelsContainer
     }
 }
 
