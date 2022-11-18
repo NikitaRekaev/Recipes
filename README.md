@@ -52,7 +52,7 @@ Simply run `pod install` and press Run button.
 		<tr>
 			<th>Sorting</th>
 			<th>Details</th>
-                        <th>Recommendation</th>
+                        <th>NetworkError</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -64,7 +64,7 @@ Simply run `pod install` and press Run button.
 				<img width="250" src="Resources/DetailsScreen.gif">
                         </td>
 			<td>
-                                <img width="250" src="Resources/Recomendation.gif">
+                                <img width="250" src="Resources/NetworkError.gif">
 			</td>
 		</tr>
 	</tbody>
