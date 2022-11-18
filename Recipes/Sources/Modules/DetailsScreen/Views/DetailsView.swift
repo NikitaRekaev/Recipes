@@ -2,29 +2,31 @@ import SnapKit
 import UIKit
 
 final class DetailsView: BaseView {
-    
-    // MARK: - Properties
-    
+
+    // MARK: - Views
+
     var recipeImagesCollectionView: UICollectionView
     var recommendationImagesCollectionView: UICollectionView
+    
     let pageControl = UIPageControl()
-    let recipeNameLabel = UILabel()
-    let timestampLabel = UILabel()
-    let descriptionTextLabel = UILabel()
-    let difficultyTitleLabel = UILabel()
+    let recipeNameLabel = DetailsView.makeRecipeNameLabel()
+    let timestampLabel = DetailsView.makeTimestampLabel()
+    let descriptionTextLabel = DetailsView.makeTextLabel()
+    let difficultyTitleLabel = DetailsView.makeTitleLabel()
     let difficultyView = DifficultyView()
-    let instructionTitleLabel = UILabel()
-    let instructionTextLabel = UILabel()
-    let recommendedTitleLabel = UILabel()
-    let scrollView = UIScrollView()
-    let contentView = UIView()
+    let instructionTitleLabel = DetailsView.makeTitleLabel()
+    let instructionTextLabel = DetailsView.makeTextLabel()
+    let recommendedTitleLabel = DetailsView.makeTitleLabel()
     
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+
     // MARK: - For Action
-    
+
     var didPressSortByButton: (() -> Void)?
-    
+
     // MARK: - Initialization
-    
+
     init() {
         let layoutRecipeImages = UICollectionViewFlowLayout()
         layoutRecipeImages.scrollDirection = .horizontal
@@ -36,32 +38,29 @@ final class DetailsView: BaseView {
                                                               collectionViewLayout: layoutRecipeRecommendationsImages)
         super.init(frame: CGRect.zero)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Configure
-    
-    override func configureAppearance() {
+
+    // MARK: - Setting View
+
+    override func setViewAppearance() {
         backgroundColor = R.color.backgroundColor()
         scrollView.showsVerticalScrollIndicator = false
-        configureTitleLabels()
-        configureTextLabels()
-        configureRecipeNameLabel()
-        configureTimestampLabel()
-        configureRecipeImagesCollection()
-        configureRecipeRecommendationsImagesCollection()
-    }
-    
-    override func configureUI() {
-        addSubview()
         
-        congigureUIMain()
-        configureUITop()
-        configureUIDifficulty()
-        configureUIInstruction()
-        configureUIRecommendation()
+        makeRecipeImagesCollection()
+        makeRecipeRecommendationsImagesCollection()
+    }
+
+    override func setViewPosition() {
+        addSubview()
+
+        setPositionMain()
+        setPositionTop()
+        setPositionDifficulty()
+        setPositionInstruction()
+        setPositionRecommendation()
     }
 }
 
@@ -74,14 +73,70 @@ private extension DetailsView {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Creating SubViews
 
 private extension DetailsView {
+
+    func makeRecipeImagesCollection() {
+        recipeImagesCollectionView.showsHorizontalScrollIndicator = false
+        recipeImagesCollectionView.isPagingEnabled = true
+        recipeImagesCollectionView.backgroundColor = .white
+    }
     
+    func makeRecipeRecommendationsImagesCollection() {
+        recommendationImagesCollectionView.showsHorizontalScrollIndicator = false
+        recommendationImagesCollectionView.backgroundColor = R.color.backgroundColor()
+        recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
+        recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
+    }
+    
+    static func makeTitleLabel() -> UILabel {
+        let label = UILabel()
+
+        label.font = UIFont.big
+        label.textColor = R.color.textColorSecondary()
+
+        return label
+    }
+
+    static func makeTextLabel() -> UILabel {
+        let label = UILabel()
+
+        label.font = UIFont.thin
+        label.textColor = R.color.textColorSecondary()
+        label.numberOfLines = .zero
+
+        return label
+    }
+
+    static func makeRecipeNameLabel() -> UILabel {
+        let label = UILabel()
+
+        label.numberOfLines = Constants.Text.numberOfLinesStandart
+        label.font = UIFont.huge
+        label.textColor = R.color.textColorSecondary()
+
+        return label
+    }
+
+    static func makeTimestampLabel() -> UILabel {
+        let label = UILabel()
+
+        label.font = UIFont.thin
+        label.textColor = R.color.textColorSecondary()
+
+        return label
+    }
+}
+
+// MARK: - Set Position
+
+private extension DetailsView {
+
     func addSubview() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        
+
         [recipeImagesCollectionView,
          pageControl,
          timestampLabel,
@@ -94,123 +149,77 @@ private extension DetailsView {
          recommendedTitleLabel,
          recommendationImagesCollectionView].forEach { contentView.addSubview($0) }
     }
-    
-    func configureTitleLabels() {
-        recommendedTitleLabel.font = UIFont.big
-        recommendedTitleLabel.textColor = R.color.textColorSecondary()
-        
-        instructionTitleLabel.font = UIFont.big
-        instructionTitleLabel.textColor = R.color.textColorSecondary()
-        
-        difficultyTitleLabel.font = UIFont.big
-        difficultyTitleLabel.textColor = R.color.textColorSecondary()
-    }
-    
-    func configureTextLabels() {
-        instructionTextLabel.font = UIFont.thin
-        instructionTextLabel.textColor = R.color.textColorSecondary()
-        instructionTextLabel.numberOfLines = .zero
-        
-        descriptionTextLabel.font = UIFont.thin
-        descriptionTextLabel.textColor = R.color.textColorSecondary()
-        descriptionTextLabel.numberOfLines = .zero
-    }
-    
-    func configureRecipeNameLabel() {
-        recipeNameLabel.numberOfLines = Constants.Text.numberOfLinesStandart
-        recipeNameLabel.font = UIFont.huge
-        recipeNameLabel.textColor = R.color.textColorSecondary()
-        
-    }
-    
-    func configureTimestampLabel() {
-        timestampLabel.font = UIFont.thin
-        timestampLabel.textColor = R.color.textColorSecondary()
-    }
-    
-    func configureRecipeImagesCollection() {
-        recipeImagesCollectionView.showsHorizontalScrollIndicator = false
-        recipeImagesCollectionView.isPagingEnabled = true
-        recipeImagesCollectionView.backgroundColor = .white
-    }
-    
-    func configureRecipeRecommendationsImagesCollection() {
-        recommendationImagesCollectionView.showsHorizontalScrollIndicator = false
-        recommendationImagesCollectionView.backgroundColor = R.color.backgroundColor()
-        recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
-        recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
-    }
-    
-    func congigureUIMain() {
+
+    func setPositionMain() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
             make.leading.trailing.equalTo(self)
         }
     }
-    
-    func configureUITop() {
+
+    func setPositionTop() {
         recipeImagesCollectionView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(Constants.RecipeImageCollection.height)
         }
-        
+
         pageControl.snp.makeConstraints { make in
             make.bottom.equalTo(recipeImagesCollectionView.snp.bottom)
             make.centerX.equalTo(recipeImagesCollectionView.snp.centerX)
         }
-        
+
         timestampLabel.snp.makeConstraints { make in
             make.bottom.equalTo(recipeNameLabel.snp.bottom)
             make.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
-        
+
         recipeNameLabel.snp.makeConstraints { make in
             make.top.equalTo(recipeImagesCollectionView.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.equalToSuperview().inset(Constants.Inset.classic)
             make.trailing.equalTo(timestampLabel.snp.leading).offset(-Constants.Inset.classic)
         }
-        
+
         descriptionTextLabel.snp.makeConstraints { make in
             make.top.equalTo(recipeNameLabel.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
     }
-    
-    func configureUIDifficulty() {
+
+    func setPositionDifficulty() {
         difficultyTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
-        
+
         difficultyView.snp.makeConstraints { make in
             make.top.equalTo(difficultyTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.equalToSuperview().inset(Constants.Inset.classic)
             make.trailing.lessThanOrEqualToSuperview().inset(Constants.Inset.classic)
         }
     }
-    
-    func configureUIInstruction() {
+
+    func setPositionInstruction() {
         instructionTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(difficultyView.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
-        
+
         instructionTextLabel.snp.makeConstraints { make in
             make.top.equalTo(instructionTitleLabel.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
     }
-    
-    func configureUIRecommendation() {
+
+    func setPositionRecommendation() {
         recommendedTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(instructionTextLabel.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
-        
+
         recommendationImagesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(recommendedTitleLabel.snp.bottom)
             make.bottom.equalTo(contentView)
