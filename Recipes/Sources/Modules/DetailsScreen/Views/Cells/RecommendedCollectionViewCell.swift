@@ -4,22 +4,6 @@ import UIKit
 
 class RecommendedCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Self creating
-    
-    static func registerCell(collectionView: UICollectionView) {
-        collectionView.register(RecommendedCollectionViewCell.self,
-                                forCellWithReuseIdentifier: Constants.cellReuseIdentifier)
-    }
-    
-    static func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> RecommendedCollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier,
-                                                            for: indexPath) as? RecommendedCollectionViewCell else {
-            return RecommendedCollectionViewCell()
-        }
-        
-        return cell
-    }
-    
     // MARK: - Properties
     
     var didPressButton: (() -> Void)?
@@ -45,6 +29,25 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Self creating
+
+extension RecommendedCollectionViewCell {
+    
+    static func registerCell(collectionView: UICollectionView) {
+        collectionView.register(RecommendedCollectionViewCell.self,
+                                forCellWithReuseIdentifier: Constants.cellReuseIdentifier)
+    }
+    
+    static func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> RecommendedCollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier,
+                                                            for: indexPath) as? RecommendedCollectionViewCell else {
+            return RecommendedCollectionViewCell()
+        }
+        
+        return cell
     }
 }
 
