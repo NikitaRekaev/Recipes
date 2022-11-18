@@ -5,8 +5,8 @@ final class DetailsView: BaseView {
 
     // MARK: - Views
 
-    var recipeImagesCollectionView: UICollectionView
-    var recommendationImagesCollectionView: UICollectionView
+    var recipeCollectionView: UICollectionView
+    var recommendationCollectionView: UICollectionView
     
     let pageControl = UIPageControl()
     let recipeNameLabel = DetailsView.makeRecipeNameLabel()
@@ -30,12 +30,12 @@ final class DetailsView: BaseView {
     init() {
         let layoutRecipeImages = UICollectionViewFlowLayout()
         layoutRecipeImages.scrollDirection = .horizontal
-        recipeImagesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layoutRecipeImages)
+        recipeCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layoutRecipeImages)
 
         let layoutRecipeRecommendationsImages = UICollectionViewFlowLayout()
         layoutRecipeRecommendationsImages.scrollDirection = .horizontal
-        recommendationImagesCollectionView = UICollectionView(frame: CGRect.zero,
-                                                              collectionViewLayout: layoutRecipeRecommendationsImages)
+        recommendationCollectionView = UICollectionView(frame: CGRect.zero,
+                                                        collectionViewLayout: layoutRecipeRecommendationsImages)
         super.init(frame: CGRect.zero)
     }
 
@@ -78,16 +78,16 @@ private extension DetailsView {
 private extension DetailsView {
 
     func makeRecipeImagesCollection() {
-        recipeImagesCollectionView.showsHorizontalScrollIndicator = false
-        recipeImagesCollectionView.isPagingEnabled = true
-        recipeImagesCollectionView.backgroundColor = .white
+        recipeCollectionView.showsHorizontalScrollIndicator = false
+        recipeCollectionView.isPagingEnabled = true
+        recipeCollectionView.backgroundColor = .white
     }
     
     func makeRecipeRecommendationsImagesCollection() {
-        recommendationImagesCollectionView.showsHorizontalScrollIndicator = false
-        recommendationImagesCollectionView.backgroundColor = R.color.backgroundColor()
-        recommendationImagesCollectionView.contentInset.left = Constants.Inset.classic
-        recommendationImagesCollectionView.contentInset.right = Constants.Inset.classic
+        recommendationCollectionView.showsHorizontalScrollIndicator = false
+        recommendationCollectionView.backgroundColor = R.color.backgroundColor()
+        recommendationCollectionView.contentInset.left = Constants.Inset.classic
+        recommendationCollectionView.contentInset.right = Constants.Inset.classic
     }
     
     static func makeTitleLabel() -> UILabel {
@@ -137,7 +137,7 @@ private extension DetailsView {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        [recipeImagesCollectionView,
+        [recipeCollectionView,
          pageControl,
          timestampLabel,
          recipeNameLabel,
@@ -147,7 +147,7 @@ private extension DetailsView {
          instructionTitleLabel,
          instructionTextLabel,
          recommendedTitleLabel,
-         recommendationImagesCollectionView].forEach { contentView.addSubview($0) }
+         recommendationCollectionView].forEach { contentView.addSubview($0) }
     }
 
     func setPositionMain() {
@@ -162,14 +162,14 @@ private extension DetailsView {
     }
 
     func setPositionTop() {
-        recipeImagesCollectionView.snp.makeConstraints { make in
+        recipeCollectionView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(Constants.RecipeImageCollection.height)
         }
 
         pageControl.snp.makeConstraints { make in
-            make.bottom.equalTo(recipeImagesCollectionView.snp.bottom)
-            make.centerX.equalTo(recipeImagesCollectionView.snp.centerX)
+            make.bottom.equalTo(recipeCollectionView.snp.bottom)
+            make.centerX.equalTo(recipeCollectionView.snp.centerX)
         }
 
         timestampLabel.snp.makeConstraints { make in
@@ -178,7 +178,7 @@ private extension DetailsView {
         }
 
         recipeNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(recipeImagesCollectionView.snp.bottom).inset(-Constants.Inset.classic)
+            make.top.equalTo(recipeCollectionView.snp.bottom).inset(-Constants.Inset.classic)
             make.leading.equalToSuperview().inset(Constants.Inset.classic)
             make.trailing.equalTo(timestampLabel.snp.leading).offset(-Constants.Inset.classic)
         }
@@ -220,7 +220,7 @@ private extension DetailsView {
             make.leading.trailing.equalToSuperview().inset(Constants.Inset.classic)
         }
 
-        recommendationImagesCollectionView.snp.makeConstraints { make in
+        recommendationCollectionView.snp.makeConstraints { make in
             make.top.equalTo(recommendedTitleLabel.snp.bottom)
             make.bottom.equalTo(contentView)
             make.leading.trailing.equalTo(contentView)
