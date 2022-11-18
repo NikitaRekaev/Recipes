@@ -48,33 +48,6 @@ private extension ErrorPageView {
     }
 }
 
-// MARK: - Private Methods
-
-private extension ErrorPageView {
-    
-    func setViewAppearance() {
-        isHidden = true
-        backgroundColor = .white
-    }
-    
-    func setViewPosition() {
-        addSubview(errorBox)
-        errorBox.snp.makeConstraints { make in
-            make.leading.equalTo(Constants.Design.basicInset)
-            make.trailing.equalTo(-Constants.Design.basicInset)
-            make.top.greaterThanOrEqualToSuperview().inset(Constants.Design.basicInset)
-            make.bottom.lessThanOrEqualToSuperview().inset(Constants.Design.basicInset)
-            make.centerY.equalToSuperview()
-        }
-        
-        [titleTextLabel, descriptionTextLabel, mainButton].forEach { errorBox.addArrangedSubview($0) }
-        mainButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.Button.height)
-            make.width.equalTo(errorBox.snp.width).dividedBy(Constants.Button.divison)
-        }
-    }
-}
-
 // MARK: - Creating SubViews
 
 private extension ErrorPageView {
@@ -120,6 +93,33 @@ private extension ErrorPageView {
         mainButton.layer.borderColor = UIColor.systemBlue.cgColor
         
         return mainButton
+    }
+}
+
+// MARK: - Setting Views
+
+private extension ErrorPageView {
+    
+    func setViewAppearance() {
+        isHidden = true
+        backgroundColor = .white
+    }
+    
+    func setViewPosition() {
+        addSubview(errorBox)
+        errorBox.snp.makeConstraints { make in
+            make.leading.equalTo(Constants.Design.basicInset)
+            make.trailing.equalTo(-Constants.Design.basicInset)
+            make.top.greaterThanOrEqualToSuperview().inset(Constants.Design.basicInset)
+            make.bottom.lessThanOrEqualToSuperview().inset(Constants.Design.basicInset)
+            make.centerY.equalToSuperview()
+        }
+        
+        [titleTextLabel, descriptionTextLabel, mainButton].forEach { errorBox.addArrangedSubview($0) }
+        mainButton.snp.makeConstraints { make in
+            make.height.equalTo(Constants.Button.height)
+            make.width.equalTo(errorBox.snp.width).dividedBy(Constants.Button.divison)
+        }
     }
 }
 
