@@ -4,9 +4,12 @@ import UIKit
 
 class DetailsCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: - Views
     
     private let recipeImageView = UIImageView()
+    
+    // MARK: - Internal Properties
+    
     private var viewModel: ImageCollectionViewCellViewModel!
     
     private var imageLink: String! {
