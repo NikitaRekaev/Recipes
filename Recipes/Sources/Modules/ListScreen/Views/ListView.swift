@@ -3,12 +3,12 @@ import UIKit
 
 final class ListView: BaseView {
     
-    // MARK: - UI Elements
+    // MARK: - Views
     
     let tableView = UITableView()
     let searchController = UISearchController()
     
-    // MARK: - Configure
+    // MARK: - Setting View
     
     override func setViewAppearance() {
         backgroundColor = .white

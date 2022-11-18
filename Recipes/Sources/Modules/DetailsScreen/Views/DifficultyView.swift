@@ -3,29 +3,29 @@ import UIKit
 
 final class DifficultyView: UIView {
     
-    // MARK: - UI Elements
+    // MARK: - Views
     
-    private let difficultyImagesCollection = UIStackView()
+    private let difficultyStackView = UIStackView()
     
     // MARK: - Properties
     
     var difficulty: Int = .zero {
         didSet {
-            difficultyImagesCollection.arrangedSubviews.forEach { view in
-                difficultyImagesCollection.removeArrangedSubview(view)
+            difficultyStackView.arrangedSubviews.forEach { view in
+                difficultyStackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
             }
             
             for _ in .zero..<difficulty {
                 let image = R.image.shapeTrue()
                 let imageView = UIImageView(image: image)
-                difficultyImagesCollection.addArrangedSubview(imageView)
+                difficultyStackView.addArrangedSubview(imageView)
             }
             
             for _ in difficulty..<Constants.maxDifficultyStarAmount {
                 let image = R.image.shapeFalse()
                 let imageView = UIImageView(image: image)
-                difficultyImagesCollection.addArrangedSubview(imageView)
+                difficultyStackView.addArrangedSubview(imageView)
             }
         }
     }
@@ -34,7 +34,7 @@ final class DifficultyView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)
-        configureAppearance()
+        setViewPosition()
     }
     
     required init?(coder: NSCoder) {
@@ -42,25 +42,29 @@ final class DifficultyView: UIView {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Creating SubViews
 
 private extension DifficultyView {
     
-    func configureAppearance() {
-        configureDifficultyImagesCollection()
-        configureUI()
+    static func makeDifficultyImagesCollection() -> UIStackView {
+        let stackView = UIStackView()
+        
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .leading
+        stackView.spacing = Constants.DifficultyImageCollection.spacing
+        
+        return stackView
     }
+}
+
+// MARK: - Setting Views
+
+private extension DifficultyView {
     
-    func configureDifficultyImagesCollection() {
-        difficultyImagesCollection.axis = .horizontal
-        difficultyImagesCollection.distribution = .fillEqually
-        difficultyImagesCollection.alignment = .leading
-        difficultyImagesCollection.spacing = Constants.DifficultyImageCollection.spacing
-    }
-    
-    func configureUI() {
-        addSubview(difficultyImagesCollection)
-        difficultyImagesCollection.snp.makeConstraints { make in
+    func setViewPosition() {
+        addSubview(difficultyStackView)
+        difficultyStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
