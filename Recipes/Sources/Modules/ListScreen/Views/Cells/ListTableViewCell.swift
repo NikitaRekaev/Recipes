@@ -76,34 +76,6 @@ private extension ListTableViewCell {
     }
 }
 
-// MARK: - Private Methods
-
-private extension ListTableViewCell {
-    
-    func setViewPosition() {
-        [recipeImageView, labelsContainer, timestampLabel].forEach { addSubview($0) }
-        [titleLabel, descriptionLabel].forEach { labelsContainer.addArrangedSubview($0) }
-        
-        recipeImageView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Constants.Inset.classic)
-            make.trailing.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(Constants.Image.widthDivision)
-        }
-        
-        timestampLabel.snp.makeConstraints { make in
-            make.bottom.leading.equalToSuperview().inset(Constants.Inset.small)
-            make.trailing.lessThanOrEqualTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
-        }
-        
-        labelsContainer.snp.makeConstraints { make in
-            make.top.equalTo(recipeImageView.snp.top)
-            make.bottom.lessThanOrEqualTo(timestampLabel.snp.top).inset(-Constants.LabelsContainer.spacing)
-            make.leading.equalToSuperview().inset(Constants.Inset.small)
-            make.trailing.equalTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
-        }
-    }
-}
-
 // MARK: - Creating SubViews
 
 private extension ListTableViewCell {
@@ -159,6 +131,34 @@ private extension ListTableViewCell {
         labelsContainer.spacing = Constants.LabelsContainer.spacing
         
         return labelsContainer
+    }
+}
+
+// MARK: - Private Methods
+
+private extension ListTableViewCell {
+    
+    func setViewPosition() {
+        [recipeImageView, labelsContainer, timestampLabel].forEach { addSubview($0) }
+        [titleLabel, descriptionLabel].forEach { labelsContainer.addArrangedSubview($0) }
+        
+        recipeImageView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(Constants.Inset.classic)
+            make.trailing.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(Constants.Image.widthDivision)
+        }
+        
+        timestampLabel.snp.makeConstraints { make in
+            make.bottom.leading.equalToSuperview().inset(Constants.Inset.small)
+            make.trailing.lessThanOrEqualTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
+        }
+        
+        labelsContainer.snp.makeConstraints { make in
+            make.top.equalTo(recipeImageView.snp.top)
+            make.bottom.lessThanOrEqualTo(timestampLabel.snp.top).inset(-Constants.LabelsContainer.spacing)
+            make.leading.equalToSuperview().inset(Constants.Inset.small)
+            make.trailing.equalTo(recipeImageView.snp.leading).offset(-Constants.Inset.classic)
+        }
     }
 }
 
