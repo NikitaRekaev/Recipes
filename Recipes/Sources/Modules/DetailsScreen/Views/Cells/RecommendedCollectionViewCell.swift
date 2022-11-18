@@ -4,28 +4,14 @@ import UIKit
 
 class RecommendedCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Self creating
+    // MARK: - Views
     
-    static func registerCell(collectionView: UICollectionView) {
-        collectionView.register(RecommendedCollectionViewCell.self,
-                                forCellWithReuseIdentifier: Constants.cellReuseIdentifier)
-    }
-    
-    static func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> RecommendedCollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier,
-                                                            for: indexPath) as? RecommendedCollectionViewCell else {
-            return RecommendedCollectionViewCell()
-        }
-        
-        return cell
-    }
+    private let recipeImageView = RecommendedCollectionViewCell.makeRecipeImage()
+    private let titleLabel = RecommendedCollectionViewCell.makeTitleLabel()
     
     // MARK: - Properties
     
     var didPressButton: (() -> Void)?
-    
-    private let recipeImageView = UIImageView()
-    private let titleLabel = UILabel()
     
     private var imageLink: String? {
         didSet {
@@ -40,11 +26,30 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureAppearance()
+        setViewAppearance()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Self creating
+
+extension RecommendedCollectionViewCell {
+    
+    static func registerCell(collectionView: UICollectionView) {
+        collectionView.register(RecommendedCollectionViewCell.self,
+                                forCellWithReuseIdentifier: Constants.cellReuseIdentifier)
+    }
+    
+    static func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> RecommendedCollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier,
+                                                            for: indexPath) as? RecommendedCollectionViewCell else {
+            return RecommendedCollectionViewCell()
+        }
+        
+        return cell
     }
 }
 
@@ -61,34 +66,45 @@ extension RecommendedCollectionViewCell {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Creating SubView
 
 private extension RecommendedCollectionViewCell {
     
-    func configureAppearance() {
-        configureRecipeImage()
-        configureTitleLabel()
-        configureGradient()
-        configureUI()
+    static func makeRecipeImage() -> UIImageView {
+        let imageView = UIImageView()
+        
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = Constants.Design.cornerRadiusMain
+        
+        return imageView
     }
     
-    func configureRecipeImage() {
-        recipeImageView.layer.masksToBounds = true
-        recipeImageView.layer.cornerRadius = Constants.Design.cornerRadiusMain
+    static func makeTitleLabel() -> UILabel {
+        let label = UILabel()
+        
+        label.textColor = .white
+        label.font = UIFont.titleFont
+        
+        return label
+    }
+}
+
+// MARK: - Setting View
+
+private extension RecommendedCollectionViewCell {
+    
+    func setViewAppearance() {
+        setGradient()
+        setViewPosition()
     }
     
-    func configureTitleLabel() {
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont.titleFont
-    }
-    
-    func configureGradient() {
+    func setGradient() {
         recipeImageView.setupGradient(frame: self.bounds,
                                       colors: Constants.Gradient.colors,
                                       locations: Constants.Gradient.locations)
     }
     
-    func configureUI() {
+    func setViewPosition() {
         [recipeImageView, titleLabel].forEach { addSubview($0) }
         
         recipeImageView.snp.makeConstraints { make in

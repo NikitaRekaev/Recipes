@@ -25,12 +25,12 @@ class DetailsViewController: BaseViewController<DetailsView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRecipeImagesCollectionView()
-        setupRecipeImagesRecommendationsCollectionView()
+        setRecipeCollectionView()
+        setRecommendationsCollectionView()
         bindToViewModel()
         viewModel.reloadData()
         
-        setupCustomAlert(alertView)
+        setCustomAlert(alertView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +47,7 @@ class DetailsViewController: BaseViewController<DetailsView> {
 
 extension DetailsViewController {
     
-    func setupRecipeData(recipe: DataForDetails) {
+    func setRecipeData(recipe: DataForDetails) {
         if recipe.imageLinks.count < 2 {
             selfView.pageControl.isHidden = true
         } else {
@@ -57,13 +57,13 @@ extension DetailsViewController {
         
         if recipe.similarRecipes.isEmpty {
             selfView.recommendedTitleLabel.isHidden = true
-            selfView.recommendationImagesCollectionView.isHidden = true
+            selfView.recommendationCollectionView.isHidden = true
         } else {
             selfView.recommendedTitleLabel.isHidden = false
             selfView.recommendedTitleLabel.text = Constants.recommended
             
-            selfView.recommendationImagesCollectionView.isHidden = false
-            selfView.recommendationImagesCollectionView.reloadData()
+            selfView.recommendationCollectionView.isHidden = false
+            selfView.recommendationCollectionView.reloadData()
         }
         
         selfView.recipeNameLabel.text = recipe.name
@@ -75,7 +75,7 @@ extension DetailsViewController {
         
         selfView.difficultyView.difficulty = recipe.difficultyLevel
         
-        selfView.recipeImagesCollectionView.reloadData()
+        selfView.recipeCollectionView.reloadData()
         
     }
 }
@@ -93,9 +93,9 @@ extension DetailsViewController: CustomAlertDisplaying {
 extension DetailsViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if selfView.recipeImagesCollectionView.frame.size.width != 0 {
+        if selfView.recipeCollectionView.frame.size.width != 0 {
             selfView.pageControl.currentPage =
-            Int(scrollView.contentOffset.x / selfView.recipeImagesCollectionView.frame.size.width)
+            Int(scrollView.contentOffset.x / selfView.recipeCollectionView.frame.size.width)
         }
     }
 }
@@ -105,7 +105,7 @@ extension DetailsViewController: UICollectionViewDelegate {
 extension DetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == selfView.recipeImagesCollectionView {
+        if collectionView == selfView.recipeCollectionView {
             return viewModel.recipeImages.count
         } else {
             return viewModel.recipeRecommendationImages.count
@@ -113,7 +113,7 @@ extension DetailsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == selfView.recipeImagesCollectionView {
+        if collectionView == selfView.recipeCollectionView {
             return viewModel.recipeImages[indexPath.row].dequeueCell(collectionView: collectionView, indexPath: indexPath)
         } else {
             return viewModel.recipeRecommendationImages[indexPath.row].dequeueCell(collectionView: collectionView,
@@ -129,7 +129,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if collectionView == selfView.recipeImagesCollectionView {
+        if collectionView == selfView.recipeCollectionView {
             return collectionView.frame.size
         } else {
             var newSize = CGSize()
@@ -144,7 +144,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        if collectionView == selfView.recipeImagesCollectionView {
+        if collectionView == selfView.recipeCollectionView {
             return Constants.spaceRecipeImages
         } else {
             return Constants.spaceRecipeRecommendations
@@ -153,7 +153,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == selfView.recommendationImagesCollectionView {
+        if collectionView == selfView.recommendationCollectionView {
             viewModel.recipeRecommendationImages[indexPath.row].cellSelected()
         }
     }
@@ -163,17 +163,17 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
 
 private extension DetailsViewController {
     
-    func setupRecipeImagesCollectionView() {
-        selfView.recipeImagesCollectionView.delegate = self
-        selfView.recipeImagesCollectionView.dataSource = self
-        ImageCollectionViewCellViewModel.registerCell(collectionView: self.selfView.recipeImagesCollectionView)
-        selfView.recipeImagesCollectionView.reloadData()
+    func setRecipeCollectionView() {
+        selfView.recipeCollectionView.delegate = self
+        selfView.recipeCollectionView.dataSource = self
+        ImageCollectionViewCellViewModel.registerCell(collectionView: self.selfView.recipeCollectionView)
+        selfView.recipeCollectionView.reloadData()
     }
     
-    func setupRecipeImagesRecommendationsCollectionView() {
-        selfView.recommendationImagesCollectionView.delegate = self
-        selfView.recommendationImagesCollectionView.dataSource = self
-        RecommendedCollectionViewCell.registerCell(collectionView: self.selfView.recommendationImagesCollectionView)
+    func setRecommendationsCollectionView() {
+        selfView.recommendationCollectionView.delegate = self
+        selfView.recommendationCollectionView.dataSource = self
+        RecommendedCollectionViewCell.registerCell(collectionView: self.selfView.recommendationCollectionView)
     }
     
     func bindToViewModel() {
@@ -191,8 +191,8 @@ private extension DetailsViewController {
     
     func didFinishUpdating() {
         if let recipe = viewModel.recipe {
-            setupRecipeData(recipe: recipe)
-            selfView.recipeImagesCollectionView.reloadData()
+            setRecipeData(recipe: recipe)
+            selfView.recipeCollectionView.reloadData()
             hideCustomAlert(alertView)
         }
     }

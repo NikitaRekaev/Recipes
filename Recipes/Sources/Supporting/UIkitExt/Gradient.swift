@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIView {
+    
     func setupGradient(frame: CGRect, colors: [CGColor], locations: [NSNumber]) {
             let gradientView = UIView(frame: frame)
             let gradient = CAGradientLayer()

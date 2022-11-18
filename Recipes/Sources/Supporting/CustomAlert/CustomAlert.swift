@@ -4,7 +4,7 @@ protocol CustomAlertDisplaying {
     
     var targetView: UIView { get }
     
-    func setupCustomAlert(_ alertView: ErrorPageView)
+    func setCustomAlert(_ alertView: ErrorPageView)
     func removeCustomAlert(_ alertView: ErrorPageView)
     
     func showCustomAlert(_ alertView: ErrorPageView, title: String, message: String, buttonText: String)
@@ -17,7 +17,7 @@ extension CustomAlertDisplaying where Self: UIViewController {
     
     var targetView: UIView { return self.view }
     
-    func setupCustomAlert(_ alertView: ErrorPageView) {
+    func setCustomAlert(_ alertView: ErrorPageView) {
         targetView.addSubview(alertView)
         
         alertView.snp.makeConstraints { make in
