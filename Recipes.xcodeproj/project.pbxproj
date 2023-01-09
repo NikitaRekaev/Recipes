@@ -30,7 +30,6 @@
 		116E3CE4290A726C005F73DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE3290A726C005F73DD /* AppCoordinator.swift */; };
 		116E3CE7290A75A7005F73DD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE6290A75A7005F73DD /* BaseView.swift */; };
 		116E3CE9290A7633005F73DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CE8290A7633005F73DD /* BaseViewController.swift */; };
-		116E3CEB290A769C005F73DD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CEA290A769C005F73DD /* ListView.swift */; };
 		116E3CEF290A778D005F73DD /* ErrorPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CEE290A778D005F73DD /* ErrorPageView.swift */; };
 		116E3CF1290A79F7005F73DD /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CF0290A79F7005F73DD /* CustomAlert.swift */; };
 		116E3CF7290A8873005F73DD /* DataForDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E3CF6290A8873005F73DD /* DataForDetails.swift */; };
@@ -77,11 +76,10 @@
 		116E3CE3290A726C005F73DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		116E3CE6290A75A7005F73DD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		116E3CE8290A7633005F73DD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		116E3CEA290A769C005F73DD /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		116E3CEE290A778D005F73DD /* ErrorPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageView.swift; sourceTree = "<group>"; };
 		116E3CF0290A79F7005F73DD /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		116E3CF6290A8873005F73DD /* DataForDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForDetails.swift; sourceTree = "<group>"; };
-		116E3CF9290A88E7005F73DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		116E3CF9290A88E7005F73DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../Controller/DetailsViewController.swift; sourceTree = "<group>"; };
 		116E3D03290A8B03005F73DD /* RecommendedImageCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedImageCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		116E3D05290A8B4B005F73DD /* RecommendedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionViewCell.swift; sourceTree = "<group>"; };
 		116E3D08290A8BAC005F73DD /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -182,29 +180,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		116E3CBF29098DD4005F73DD /* View */ = {
+		116E3CC029098DE1005F73DD /* View */ = {
 			isa = PBXGroup;
 			children = (
 				116E3CEC290A76D0005F73DD /* Cell */,
-				116E3CEA290A769C005F73DD /* ListView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		116E3CC029098DE1005F73DD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
 				11E9F93528DA62F90040D7B3 /* ListViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		116E3CC729098F07005F73DD /* ListScreen */ = {
 			isa = PBXGroup;
 			children = (
 				116E3CD9290A6D33005F73DD /* Coordinator */,
-				116E3CC029098DE1005F73DD /* Controller */,
-				116E3CBF29098DD4005F73DD /* View */,
+				116E3CC029098DE1005F73DD /* View */,
 				116E3CBE29098DCD005F73DD /* ViewModel */,
 				116E3CBB29098DBE005F73DD /* Model */,
 			);
@@ -277,7 +266,6 @@
 		116E3CF8290A88D0005F73DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				116E3CF9290A88E7005F73DD /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				116E3CFF290A8A6C005F73DD /* Cell */,
+				116E3CF9290A88E7005F73DD /* DetailsViewController.swift */,
 				116E3D10290A9375005F73DD /* DifficultyView.swift */,
 				116E3D12290A94B5005F73DD /* DetailsView.swift */,
 			);
@@ -618,7 +607,6 @@
 				116E3CD1290A629C005F73DD /* UIFont+AppFonts.swift in Sources */,
 				116E3CC429098E6F005F73DD /* DataForCell.swift in Sources */,
 				116E3CFA290A88E7005F73DD /* DetailsViewController.swift in Sources */,
-				116E3CEB290A769C005F73DD /* ListView.swift in Sources */,
 				116E3D0D290A901A005F73DD /* DetailsCollectionViewCell.swift in Sources */,
 				116E3CBD29098DBE005F73DD /* SearchCase.swift in Sources */,
 				116E3CCB29099302005F73DD /* ListTableViewCell.swift in Sources */,
