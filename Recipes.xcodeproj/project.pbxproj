@@ -79,7 +79,7 @@
 		116E3CEE290A778D005F73DD /* ErrorPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPageView.swift; sourceTree = "<group>"; };
 		116E3CF0290A79F7005F73DD /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		116E3CF6290A8873005F73DD /* DataForDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForDetails.swift; sourceTree = "<group>"; };
-		116E3CF9290A88E7005F73DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		116E3CF9290A88E7005F73DD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../Controller/DetailsViewController.swift; sourceTree = "<group>"; };
 		116E3D03290A8B03005F73DD /* RecommendedImageCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedImageCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		116E3D05290A8B4B005F73DD /* RecommendedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionViewCell.swift; sourceTree = "<group>"; };
 		116E3D08290A8BAC005F73DD /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -266,7 +266,6 @@
 		116E3CF8290A88D0005F73DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				116E3CF9290A88E7005F73DD /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				116E3CFF290A8A6C005F73DD /* Cell */,
+				116E3CF9290A88E7005F73DD /* DetailsViewController.swift */,
 				116E3D10290A9375005F73DD /* DifficultyView.swift */,
 				116E3D12290A94B5005F73DD /* DetailsView.swift */,
 			);
