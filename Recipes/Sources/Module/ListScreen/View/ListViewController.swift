@@ -18,7 +18,7 @@ class ListViewController: UIViewController {
     private var currentSortCase = SortCase.date {
         didSet {
             filteredRecipes = viewModel.sortRecipesBy(sortCase: currentSortCase, recipes: filteredRecipes)
-            selfView.tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -110,32 +110,32 @@ extension ListViewController: UISearchBarDelegate {
     // MARK: - SearchBar Helpers
     
     private func hideSearchBar(withPlaceholder placeholder: String?) {
-        selfView.searchController.searchBar.placeholder = placeholder
-        selfView.searchController.searchBar.showsScopeBar = false
-        selfView.searchController.searchBar.setShowsCancelButton(false, animated: true)
-        selfView.searchController.searchBar.endEditing(true)
-        selfView.searchController.isActive = false
+        searchController.searchBar.placeholder = placeholder
+        searchController.searchBar.showsScopeBar = false
+        searchController.searchBar.setShowsCancelButton(false, animated: true)
+        searchController.searchBar.endEditing(true)
+        searchController.isActive = false
     }
     
     private func showSearchBar() {
-        selfView.searchController.searchBar.showsScopeBar = true
-        selfView.searchController.searchBar.setShowsCancelButton(true, animated: true)
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.setShowsCancelButton(true, animated: true)
     }
     
     private func resetSearchBar() {
-        selfView.searchController.searchBar.text = ""
+        searchController.searchBar.text = ""
         filteredRecipes = viewModel.viewModels
         filteredRecipes = viewModel.sortRecipesBy(sortCase: currentSortCase, recipes: filteredRecipes)
-        selfView.tableView.reloadData()
+        tableView.reloadData()
     }
     
     private func filterAndSort() {
-        filteredRecipes = viewModel.filterRecipesForSearchText(searchText: selfView.searchController.searchBar.text,
+        filteredRecipes = viewModel.filterRecipesForSearchText(searchText: searchController.searchBar.text,
                                                                scope: currentSearchCase)
         
         filteredRecipes = viewModel.sortRecipesBy(sortCase: currentSortCase, recipes: filteredRecipes)
         
-        selfView.tableView.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -171,7 +171,7 @@ private extension ListViewController {
 private extension ListViewController {
     
     func setSearchController() {
-        selfView.searchController.searchBar.delegate = self
+        searchController.searchBar.delegate = self
     }
     
     func setNavigationItem() {
@@ -181,7 +181,7 @@ private extension ListViewController {
                                                             action: #selector(sortByButtonTapped))
         
         navigationItem.hidesSearchBarWhenScrolling = true
-        navigationItem.searchController = selfView.searchController
+        navigationItem.searchController = searchController
     }
     
     func setTableView() {
@@ -190,12 +190,12 @@ private extension ListViewController {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        TableCellViewModel.registerCell(tableView: selfView.tableView)
+        TableCellViewModel.registerCell(tableView: tableView)
         setViewPosition()
     }
     
     func setViewPosition() {
-        addSubview(tableView)
+        self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -217,11 +217,11 @@ private extension ListViewController {
     /// In case update was triggered by refreshing the table
     func didFinishUpdating() {
         filteredRecipes = viewModel.filterRecipesForSearchText(
-            searchText: selfView.searchController.searchBar.text,
+            searchText: searchController.searchBar.text,
             scope: currentSearchCase)
         
         filteredRecipes = viewModel.sortRecipesBy(sortCase: currentSortCase, recipes: filteredRecipes)
-        selfView.tableView.reloadData()
+        tableView.reloadData()
         hideCustomAlert(alertView)
     }
     
